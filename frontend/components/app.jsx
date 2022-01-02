@@ -1,21 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import SplashContainer from './splash/splash_container';
+import { BrowserRouter as Link, Router, Route, Routes } from 'react-router-dom'
+import Splash from './splash/splash';
 import LoginFormContainer from './session_form/login_form_container';
+import SignupFormContainer from './session_form/signup_container';
 
 const App = () => (
     <div>
-        <header>
-            <h1>Splitzies</h1>
-            <SplashContainer />
-        </header>
-
         <Routes>
-            <Route path="/login" element={<LoginFormContainer/>} />
+            < Route path="/" element={<Splash/>} />
+            < Route path="/login" element={<LoginFormContainer/>} />
+            < Route path="/signup" element={<SignupFormContainer />} />
         </Routes>
-        
-        
-
     </div>
 )
 
