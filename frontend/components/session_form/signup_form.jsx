@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 
 class SignupForm extends React.Component {
@@ -47,32 +49,38 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.errors ? this.renderErrors() : ''}
-                <h2>INTRODUCE YOURSELF</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Hi there! My name is
-                        <br />
-                        <input type="text" value={this.state.name} onInput={() => setTimeout(() => this.reveal(), 100)} onChange={this.update('name')}/>
-                        <br />
-                        <br />
-                    </label>
-                    <div id="hidden-input" style={{height:0, overflow:'hidden'}} >
-                        <label>Here's my <strong>email address:</strong> 
+            <div className="signup-container">
+                <div className="logo-div">
+                    <Link to="/"><img src={window.logo} alt="logo_image" id="logo-img"/></Link>
+                </div>
+                <div className="signup-form">
+                    {this.props.errors ? this.renderErrors() : ''}
+                    <h2>INTRODUCE YOURSELF</h2>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Hi there! My name is
                             <br />
-                            <input type="text" value={this.state.email} onChange={this.update('email')} />
+                            <input type="text" value={this.state.name} onInput={() => setTimeout(() => this.reveal(), 100)} onChange={this.update('name')} />
                             <br />
                             <br />
                         </label>
-                        <label>And here's my <strong>password:</strong>
-                            <br />
-                            <input type="password" value={this.state.password} onChange={this.update('password')} />
-                            <br />
-                            <br />
-                        </label>
-                    </div>                    
-                    <button>Sign me up!</button>
-                </form>
+                        <div id="hidden-input" style={{ height: 0, overflow: 'hidden' }} >
+                            <label>Here's my <strong>email address:</strong>
+                                <br />
+                                <input type="text" value={this.state.email} onChange={this.update('email')} />
+                                <br />
+                                <br />
+                            </label>
+                            <label>And here's my <strong>password:</strong>
+                                <br />
+                                <input type="password" value={this.state.password} onChange={this.update('password')} />
+                                <br />
+                                <br />
+                            </label>
+                        </div>
+                        <button>Sign me up!</button>
+                    </form>  
+                </div>
+
             </div>   
         )
     }

@@ -37,24 +37,30 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div>
-                <TopNav />
-                {this.props.errors ? this.renderError() : ''}
-                <h1>Log in</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email address</label>
+                <header>
+                    <TopNav />
+                </header>
+
+                <div className="login-form">
+                    {this.props.errors ? this.renderError() : ''}
+                    <h1>Log in</h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Email address</label>
                         <br />
-                            <input type="text" value={this.state.email} onChange={this.update('email')} />
+                        <input type="text" value={this.state.email} onChange={this.update('email')} />
                         <br />
+                        <br />
+                        <label>Password</label>
+                        <br />
+                        <input type="password" value={this.state.password} onChange={this.update('password')} />
+                        <br />
+                        <br />
+                        <button>Log in</button>
+                    </form>
                     <br />
-                    <label>Password</label>
-                        <br />
-                            <input type="password" value={this.state.password} onChange={this.update('password')} />
-                        <br />
-                    <br />
-                    <button>Log in</button>    
-                </form>
-                <br />
-                <button onClick={this.loginDemo}>Demo User</button>
+                    <button onClick={this.loginDemo}>Demo User</button>
+                </div> 
+
             </div>
         )
     }

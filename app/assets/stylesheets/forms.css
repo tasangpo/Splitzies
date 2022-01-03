@@ -1,0 +1,28 @@
+.signup-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 50%;
+    height: auto;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-start;
+}
+
+#logo-img {
+    width: 75%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}

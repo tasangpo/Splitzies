@@ -8,7 +8,6 @@
     padding: 2rem;
     height: 50px;
     width: 80%;
-    border: 1px solid black;
 }
 
 .splash-header-buttons {
@@ -17,7 +16,6 @@
     align-items: center;
     width: 200px;
     padding: 20px;
-    /* border: 1px solid black; */
 }
 
 

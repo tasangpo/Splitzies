@@ -3,14 +3,12 @@
     flex-direction: column; 
     width: 100%;
     height: 200vh;
-    border: 1px solid red;
 }
 
 .splash-main {
     display: flex;
     flex-direction: row;
     height: 25%;
-    border: 1px solid green;
 }
 
 .main-text {
@@ -39,3 +37,11 @@
     width: 40%;
 }
 
+.main-img {
+    display: flex;
+    align-items: center;
+}
+
+#main-img {
+    width: 75%;
+}

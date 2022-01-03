@@ -16,7 +16,7 @@ class Splash extends React.Component {
                             <Link to="/signup"><button id="splash-signup" style={{ width: "100px", height: "40px" }}>Sign up</button></Link>
                         </div>
                         <div className="main-img">
-                            <img src="" alt="splash_img" />
+                            <img src={window.splash} alt="splash_img" id="main-img"/>
                         </div>
                     </div>
 
