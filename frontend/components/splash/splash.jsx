@@ -24,22 +24,22 @@ class Splash extends React.Component {
                         <div className="splash-features" style={{ 'backgroundColor': "grey" }}>
                             <h5>Track balances</h5>
                             <p>Keep track of shared expenses, balances, and who owes who.</p>
-                            <img src="" alt="balances_pic" />
+                            <img className="splash-img" src={window.splash1} alt="balances_pic"/>
                         </div>
                         <div className="splash-features" style={{ 'backgroundColor': "aqua" }}>
                             <h5>Organize expenses</h5>
                             <p>Split expenses with any group: trips, housemates, friends, and family.</p>
-                            <img src="" alt="group_pic" />
+                            <img className="splash-img" src={window.splash2} alt="group_pic" />
                         </div>
                         <div className="splash-features" style={{ 'backgroundColor': "orange" }}>
                             <h5>Add expenses easily</h5>
                             <p>Quickly add expenses on the go before you forget who paid.</p>
-                            <img src="" alt="expenses_pic" />
+                            <img className="splash-img" src={window.splash3} alt="expenses_pic" />
                         </div>
                         <div className="splash-features" style={{ 'backgroundColor': "grey" }}>
                             <h5>Pay friends back</h5>
                             <p>Settle up with a friend and record any cash or online payment.</p>
-                            <img src="" alt="settle_pic" />
+                            <img className="splash-img" src={window.splash4} alt="settle_pic" />
                         </div>
                     </div>
                 </div>

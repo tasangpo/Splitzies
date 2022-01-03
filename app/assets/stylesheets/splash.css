@@ -33,6 +33,9 @@
     flex-direction: column;
     width: 50%;
     align-items: center;
+}
 
+.splash-img{
+    width: 40%;
 }
 
