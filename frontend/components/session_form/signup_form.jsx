@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
                             <br />
                         </label>
                     </div>                    
-                    <input type="submit" value='Sign me up!'/>
+                    <button>Sign me up!</button>
                 </form>
             </div>   
         )

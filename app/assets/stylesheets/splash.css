@@ -1,0 +1,38 @@
+.splash-container {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    height: 200vh;
+    border: 1px solid red;
+}
+
+.splash-main {
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+    border: 1px solid green;
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    align-items: center;
+}
+
+.splash-below {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50%;
+}
+
+.splash-features {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+
+}
+

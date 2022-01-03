@@ -1,4 +1,5 @@
 import React from "react";
+import TopNav from "../top_nav/top_nav";
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -30,6 +31,7 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div>
+                <TopNav />
                 {this.props.errors ? this.renderError() : ''}
                 <h1>Log in</h1>
                 <form onSubmit={this.handleSubmit}>

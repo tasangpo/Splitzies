@@ -1,16 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Link, Router, Route, Routes } from 'react-router-dom'
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { Route, Switch } from 'react-router-dom'
 import Splash from './splash/splash';
-import LoginFormContainer from './session_form/login_form_container';
-import SignupFormContainer from './session_form/signup_container';
+import LoginFormContainer from './session_form/login_form_container'
+import SignupFormContainer from './session_form/signup_container'
+import DashboardContainer from  './dashboard/dashboard_container'
 
 const App = () => (
     <div>
-        <Routes>
-            < Route path="/" element={<Splash/>} />
-            < Route path="/login" element={<LoginFormContainer/>} />
-            < Route path="/signup" element={<SignupFormContainer />} />
-        </Routes>
+        <Switch>
+            < AuthRoute path="/login" component={LoginFormContainer}/>
+            < AuthRoute path="/signup" component={SignupFormContainer}/>
+            < ProtectedRoute path="/dashboard" component={DashboardContainer} />
+            < AuthRoute path="/" component={Splash} />
+        </Switch>
     </div>
 )
 
