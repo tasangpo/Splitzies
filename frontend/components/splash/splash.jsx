@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import TopNav from "../top_nav/top_nav";
+import TopNav from "../navs/top_nav";
 
 class Splash extends React.Component {
     render() {
@@ -11,7 +11,7 @@ class Splash extends React.Component {
                 <div className='splash-container'>
                     <div className='splash-main'>
                         <div className='main-text'>
-                            <h3>Less stress when sharing expenses on trips</h3>
+                            <h3>Less stress when sharing expenses <strong id="on-trips">on trips</strong></h3>
                             <p>Keep track of your shared expenses and balances with housemates, trips, groups, friends, and family.</p>
                             <Link to="/signup"><button id="splash-signup" style={{ width: "100px", height: "40px" }}>Sign up</button></Link>
                         </div>
@@ -21,7 +21,7 @@ class Splash extends React.Component {
                     </div>
 
                     <div className="splash-below">
-                        <div className="splash-features" style={{ 'backgroundColor': "grey" }}>
+                        <div id="track-balances" className="splash-features" style={{ 'backgroundColor': "grey" }}>
                             <h5>Track balances</h5>
                             <p>Keep track of shared expenses, balances, and who owes who.</p>
                             <img className="splash-img" src={window.splash1} alt="balances_pic"/>
@@ -43,6 +43,7 @@ class Splash extends React.Component {
                         </div>
                     </div>
                 </div>
+
             </div>
         );
     }

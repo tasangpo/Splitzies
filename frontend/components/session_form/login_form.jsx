@@ -1,5 +1,5 @@
 import React from "react";
-import TopNav from "../top_nav/top_nav";
+import TopNav from "../navs/top_nav";
 
 class LoginForm extends React.Component {
     constructor(props) {

@@ -5,9 +5,11 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem;
+    padding: 20px 32px;
     height: 50px;
     width: 80%;
+    font: 16px;
+    font-weight: bolder;
 }
 
 .splash-header-buttons {
@@ -23,7 +25,7 @@
     color: black;
     text-decoration: none;
     font-family: 'Gill Sans';
-    font-size: 10px;
+    font-size: 20px;
 }
 
 button {
@@ -32,12 +34,25 @@ button {
 }
 
 #splash-signup {
-    background-color: rgb(102, 224, 208);
+    background-color: #1CC29F;
     color: white;
     border: none;
+    font-weight: bolder;
 }
 
 #splash-login {
-    color: rgb(102, 224, 208);
+    color: #1CC29F;
+    background-color: transparent;
     border: none;
+    font-weight: bolder;
+}
+
+#logo {
+    height: 50px;
+}
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
 }
