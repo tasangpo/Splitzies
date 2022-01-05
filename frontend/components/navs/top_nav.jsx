@@ -8,7 +8,6 @@ class TopNav extends React.Component {
                     <Link to="/" id="spash-splitzies">
                         <div class="logo-title">
                             <img id="logo" src={window.logo} alt="logo" />
-                            
                             <h1>Splitzies</h1>
                         </div>
                         

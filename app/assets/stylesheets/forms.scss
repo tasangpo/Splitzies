@@ -7,22 +7,139 @@
     width: 50%;
     height: auto;
 }
+.sub-container {
+    display: flex;
+    flex-direction: column;
+}
 
 .signup-form {
     display: flex;
     flex-direction: column;
     width: 50%;
+    height: 200px;
     align-items: flex-start;
+    justify-content: space-between;
+}
+
+.signup-form h2 {
+    color: #999999;
+    font-size: 16px;
+    width: 250px;
+}
+
+#hi-there {
+    color: #333333;
+    font-size: 24px;
+    margin: 16px 0px 5px;
+}
+
+.sign-input {
+    margin: 0px 0px 17px;
+    padding: 4px;
+    width: 340px;
+    height: 20px;
+}
+
+#name-input {
+    width: 340px;
+    height: 30px;
+    font-size: 24px;
+}
+
+#hidden-input label {
+    font-size: 18px;
+}
+
+.str {
+    font-weight: bolder;
+}
+
+#orange-btn {
+    background-color: #FF652F;
+    color: white;
+    margin: 9px 0px 0px;
+    padding: 11px 15px;
+    border: none;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+.err-list {
+    list-style: inside ;
+}
+
+#sign-err {
+    background-color: #CC4455;
+    color: white;
+    font-size: 18px;
+    margin: 15px 0px 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 #logo-img {
-    width: 75%;
+    height: 200px;
+    margin-right: 25px;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: space-between;
+    width: 100%;
+    height: 80vh;
+    font-family: 'Montserrat';
+    background-image: image-url('background.png');
 }
+
+
+#login-form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 3% 5%;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px grey;
+    height: 60%;
+    width: 35%;
+}
+
+#login-header {
+    font-size: 28px;
+}
+
+#login-form-container label {
+    font-size: 16px;
+}
+
+#login-form-container input {
+    padding: 8px;
+}
+
+#log-btn {
+    padding: 8px 16px;
+    background-color: #18A582;
+    font-size: 16px;
+    color: white;
+    font-weight: bolder;
+    border-radius: 10px;
+}
+
+
+#log-err {
+    color: white;
+    background-color: #CC4455;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+#demo-btn {
+    color: #18A582;
+    font-size: 16px;
+    padding: 8px 0px;
+    background-color: transparent;
+    border: none;
+}
+
