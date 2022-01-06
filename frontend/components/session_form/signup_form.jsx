@@ -15,7 +15,7 @@ class SignupForm extends React.Component {
     };
 
     // remove errors from previous attempts
-    componentWillUnmount() {
+    componentDidMount() {
         this.props.removeSessionErrors();
     }
 
