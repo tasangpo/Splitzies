@@ -1,5 +1,6 @@
 import React from "react";
 import HomeNav from "../navs/home_nav";
+import LeftNav  from "../navs/left_nav";
 
 class Dashboard extends React.Component {
     constructor(props){
@@ -11,7 +12,7 @@ class Dashboard extends React.Component {
                 <HomeNav/>
                 <div className="main-container">
                     <div className="left-console">
-                        LEFT CONSOLE
+                        <LeftNav />
                     </div>
 
                     <div className="middle-console">
