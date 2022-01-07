@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import FriendsContainer from "./friends_container";
+import { openModal } from "../../actions/modal_actions"
 
 class LeftNav extends React.Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
              <section className="left-list">
@@ -12,7 +17,7 @@ class LeftNav extends React.Component {
                 <section className="left-nav-comp">
                     <div className="f-header">
                         <h1>GROUPS</h1>
-                        <Link to="/" style={{ 'textDecoration': 'none', 'color': '#CCCCCC' }}>+ add</Link>
+                        <button style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
                     </div>
                     <div>
 
@@ -22,7 +27,7 @@ class LeftNav extends React.Component {
                  <section className="left-nav-comp">
                      <div className="f-header">
                         <h1>FRIENDS</h1>
-                        <Link to="/friendForm" style={{'textDecoration': 'none', 'color': '#CCCCCC'}}>+ add</Link>
+                        <button onClick={() => this.props.openModal('addFriend')} style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
                      </div>
                      <div>
                         <FriendsContainer/>
@@ -34,4 +39,10 @@ class LeftNav extends React.Component {
     }
 }
 
-export default LeftNav;
+const mDTP = dispatch => ({
+    openModal: modal => dispatch(openModal(modal))
+})
+
+
+
+export default connect(null, mDTP)(LeftNav);
