@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
         return (
             <div>
                 {errors.length > 0 ?
-                    <ul class="err-list"> 
+                    <ul className="err-list"> 
                         <div id="sign-err">
                             <h3>The following errors occured: </h3>
                             {errors.map(error => <li>{error}</li>)}
@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
                 <div className="logo-div">
                     <Link to="/"><img src={window.logo} alt="logo_image" id="logo-img"/></Link>
                 </div>
-                <div class="sub-container">
+                <div className="sub-container">
                     {this.props.errors ? this.renderErrors() : ''}
                     <div className="signup-form">
                         <h2>INTRODUCE YOURSELF</h2>

@@ -6,7 +6,7 @@ class TopNav extends React.Component {
         return (
                 <header className="splash-header">
                     <Link to="/" id="spash-splitzies">
-                        <div class="logo-title">
+                        <div className="logo-title">
                             <img id="logo" src={window.logo} alt="logo" />
                             <h1>Splitzies</h1>
                         </div>

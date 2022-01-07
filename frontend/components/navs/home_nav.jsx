@@ -3,10 +3,6 @@ import { Link } from "react-router-dom"
 import ProfileMenuContainer from "./profile_menu"
 
 class HomeNav extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return(
             <div className="top-container">

@@ -3,9 +3,6 @@ import HomeNav from "../navs/home_nav";
 import LeftNav  from "../navs/left_nav";
 
 class Dashboard extends React.Component {
-    constructor(props){
-        super(props)
-    }
     render() {
         return (
             <div>

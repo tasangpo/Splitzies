@@ -24,7 +24,7 @@ class ProfileMenu extends React.Component {
                     <ul onClick={e => e.stopPropagation()} className={this.state.show ? "options-list-show" : "options-list-hide"}> 
                         <li className="options">Your Account</li>
                         <li className="options">Create a group</li>
-                        <li onClick={this.props.logout} className="options">Log out</li>            
+                        <li onClick={this.props.logout} className="options">Log out</li>   
                     </ul>
                 </button>
             </div>
@@ -37,7 +37,8 @@ const mSTP = state => ({
 })
 
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    
 })
 
 export default connect(mSTP, mDTP)(ProfileMenu);
