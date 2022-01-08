@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addFriendAction } from "../../actions/friendship_actions"
+import { closeModal } from "../../actions/modal_actions";
 
 class FriendsForm extends React.Component {
     constructor(props) {
@@ -18,27 +19,48 @@ class FriendsForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.addFriendAction(this.state)
+        
+        this.props.closeModal();
+    }
+
+    renderErrors() {
+        const { errors } = this.props;
+        return (
+            <div>
+                {errors ? <ul>
+                    {errors.map(( err, i) => <li className="err-frd-add" key={i}>{err}</li>)}
+                </ul> : null}
+            </div>
+        )
     }
 
     render() {
+        const { errors } = this.props;
         return (
-            <form onSubmit={this.handleSubmit}>
-                <h1>Invite friends to pay your bills</h1>
-                <label>Email
-                    <input type="text" value={this.state.email} onChange={this.update('email')} />
-                    <button>Add friend</button>
-                </label>
-            </form>
+            <div className="modal-frd">
+                <form className="add-frd-form" onSubmit={this.handleSubmit}>
+                    <h1 id="inv-frd-header">&#128233;&nbsp;&nbsp;Invite friends</h1>
+                    <input type="text" value={this.state.email} placeholder="To:   email address" onChange={this.update('email')} />
+                    <div className="frd-msg-btn-container">
+                        <h5>Note: user must be signed up on the site</h5>
+                        <button id="add-orange-btn">Add friend</button>
+                    </div>
+                    
+                </form>
+                {errors ? this.renderErrors() : ''}
+            </div>
+            
         )
     }
 }
 
 const mSTP = state => ({
-    errors: state.errors
+    errors: state.errors.friendships
 })
 
 const mDTP = dispatch => ({
-    addFriendAction: friend => dispatch(addFriendAction(friend))
+    addFriendAction: friend => dispatch(addFriendAction(friend)),
+    closeModal: () => dispatch(closeModal())
 })
 
 export default connect(mSTP, mDTP)(FriendsForm);

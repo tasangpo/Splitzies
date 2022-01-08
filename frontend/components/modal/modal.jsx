@@ -15,7 +15,6 @@ function Modal({modal, closeModal}) {
         default:
             return null
     }
-    debugger
     return (
         <div className="modal-background" onClick={closeModal}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>

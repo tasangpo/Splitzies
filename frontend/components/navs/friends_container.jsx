@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 
 class Friends extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+    }
+
+    componentDidMount() {
+        
     }
 
     render() {
@@ -22,5 +26,8 @@ const mSTP = state => ({
     currentUser: state.entities.users[state.session.id]
 })
 
+const mDTP = dispatch => ({
+})
 
-export default connect(mSTP)(Friends);
+
+export default connect(mSTP, mDTP)(Friends);

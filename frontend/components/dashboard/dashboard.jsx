@@ -45,11 +45,11 @@ class Dashboard extends React.Component {
                                 </div>
                                 <div id="owe-btm-cont">
                                     <div id="owe-btm-left">
-                                        <h5 className="frd-name">Mantis Toboggan</h5>
+                                        <h5 className="frd-name">David Suh</h5>
                                         <p className="frd-owe">you owe $5.00</p>
                                     </div>
                                     <div>
-                                        <h5 className="frd-name">Randy Marsh</h5>
+                                        <h5 className="frd-name">John Cigale</h5>
                                         <p className="frd-owed">owes you $15.00</p>
                                     </div>
                                 </div>
