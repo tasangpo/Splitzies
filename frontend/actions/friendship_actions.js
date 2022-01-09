@@ -5,10 +5,10 @@ export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
 export const RECEIVE_FRIENDSHIP_ERRORS = "RECEIVE_FRIENDSHIP_ERRORS"
 export const REMOVE_FRIENDSHIP_ERRORS = "REMOVE_FRIENDSHIP_ERRORS"
 
-const receiveFriendship = friendship => {
+const receiveFriendship = userId => {
     return ({
     type: RECEIVE_FRIENDSHIP,
-    friendship
+    userId
     });
 }
 
@@ -29,7 +29,6 @@ export const removeFriendshipErrors = () => ({
 })
 
 export const addFriendAction = friendship => dispatch => {
-
     return FriendshipAPIUtil.addFriend(friendship).then(friendship => dispatch(receiveFriendship(friendship))
     ).fail(errors => dispatch(receiveFriendshipErrors(errors.responseJSON)));
 };

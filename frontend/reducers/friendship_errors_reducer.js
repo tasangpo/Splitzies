@@ -4,8 +4,10 @@ const friendshipsErrorsReducer = (state=[], action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_FRIENDSHIP_ERRORS:
+            // debugger
             return action.errors;
         case RECEIVE_FRIENDSHIP:
+            // debugger
             return [];
         case REMOVE_FRIENDSHIP_ERRORS:
             return [];

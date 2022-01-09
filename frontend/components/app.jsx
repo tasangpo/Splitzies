@@ -4,7 +4,7 @@ import { Switch } from 'react-router-dom'
 import Splash from './splash/splash';
 import LoginFormContainer from './session_form/login_form_container'
 import SignupFormContainer from './session_form/signup_container'
-import DashboardContainer from  './dashboard/dashboard_container'
+import HomeNav from './navs/home_nav';
 import Modal from "./modal/modal"
 
 
@@ -13,10 +13,11 @@ const App = () => (
         <Modal/>
         <Switch>
             < AuthRoute path="/login" component={LoginFormContainer}/>
+            < AuthRoute exact path="/" component={Splash} />
             < AuthRoute path="/signup" component={SignupFormContainer}/>
-            < ProtectedRoute path="/dashboard" component={DashboardContainer} />
-            < ProtectedRoute path="/all" component={DashboardContainer} />
-            < AuthRoute path="/" component={Splash} />
+            < ProtectedRoute path="/dashboard" component={HomeNav} />
+            < ProtectedRoute path="/all" component={HomeNav} />
+            < ProtectedRoute path="/friends/friendId" component={HomeNav} />
         </Switch>
     </div>
 )

@@ -17,7 +17,7 @@ User.create(name: 'Sam Lilly', email: 'saml@email.com', password: 'password');
 User.create(name: 'Sammy Huang', email: 'sammy@email.com', password: 'password');
 User.create(name: 'Tahj Harris', email: 'tahj@email.com', password: 'password');
 User.create(name: 'Alex Wong', email: 'alexw@email.com', password: 'password');
-User.create(name: 'Alex Dziuba', email: 'alexd@aemail.com', password: 'password');
+User.create(name: 'Alex Dziuba', email: 'alexd@email.com', password: 'password');
 User.create(name: 'Andrew Vitovitch', email: 'andrew@email.com', password: 'password');
 User.create(name: 'Andy Yu', email: 'andy@email.com', password: 'password');
 User.create(name: 'Anna Trott-Herdrich', email: 'anna@email.com', password: 'password');

@@ -12,6 +12,7 @@ class FriendsForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value})
     };
@@ -19,8 +20,6 @@ class FriendsForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.addFriendAction(this.state)
-        
-        this.props.closeModal();
     }
 
     renderErrors() {
@@ -34,6 +33,7 @@ class FriendsForm extends React.Component {
         )
     }
 
+
     render() {
         const { errors } = this.props;
         return (
@@ -44,10 +44,9 @@ class FriendsForm extends React.Component {
                     <div className="frd-msg-btn-container">
                         <h5>Note: user must be signed up on the site</h5>
                         <button id="add-orange-btn">Add friend</button>
-                    </div>
-                    
+                    </div>  
                 </form>
-                {errors ? this.renderErrors() : ''}
+                {errors ? this.renderErrors() : <h1>Friend has been added :)</h1>}
             </div>
             
         )

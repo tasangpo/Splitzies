@@ -4,10 +4,10 @@ class Api::FriendshipsController < ApplicationController
         @friend = User.find_by(email: params[:friendship][:email])
         if @friend
             @friendship = Friendship.new(user_id: current_user.id, friend_id: @friend.id)
-            if @friendship.save
+            if @friendship.save!
                 render "api/friendships/show"
             else
-                render json: ["#{@friend.name} is already your friend"], status: 422
+                render json: [`You are already friends with #{@friend.name}`], status: 422
             end
         else
             render json: ['Invalid user – please try again.'], status: 422
