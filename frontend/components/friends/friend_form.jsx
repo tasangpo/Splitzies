@@ -12,7 +12,6 @@ class FriendsForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
-
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value})
     };
@@ -28,7 +27,15 @@ class FriendsForm extends React.Component {
             <div>
                 {errors ? <ul>
                     {errors.map(( err, i) => <li className="err-frd-add" key={i}>{err}</li>)}
-                </ul> : null}
+                </ul> : ""}
+            </div>
+        )
+    }
+
+    renderSuccess() {
+        return (
+            <div>
+                <h2>Friend has been added :)</h2>
             </div>
         )
     }
@@ -46,7 +53,9 @@ class FriendsForm extends React.Component {
                         <button id="add-orange-btn">Add friend</button>
                     </div>  
                 </form>
-                {errors ? this.renderErrors() : <h1>Friend has been added :)</h1>}
+                {errors.length !==0 ? this.renderErrors() : this.renderSuccess}
+                
+
             </div>
             
         )

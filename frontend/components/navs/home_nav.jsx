@@ -3,7 +3,8 @@ import { Link, Switch } from "react-router-dom"
 import { ProtectedRoute } from "../../util/route_util";
 import DashboardContainer from "../dashboard/dashboard_container";
 import ProfileMenuContainer from "./profile_menu"
-import LeftNav from "./left_nav";
+import LeftNav from "./left_nav_container";
+import FriendShow from "../friends/friends_show"
 
 class HomeNav extends React.Component {
     render() {
@@ -26,7 +27,7 @@ class HomeNav extends React.Component {
                         <Switch>
                             < ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                             < ProtectedRoute exact path="/all" component={DashboardContainer} />
-                            < ProtectedRoute path="/friends/friendId" component={DashboardContainer} />
+                            < ProtectedRoute exact path="/friends/friendId" component={DashboardContainer} />
                         </Switch>
                     </section>
                     <section className="right-console">

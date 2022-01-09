@@ -1,13 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { openModal } from "../../actions/modal_actions"
-import { fetchUsers } from "../../actions/user_action"
+import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+
 import EachFriendItem from "../friends/each_friend_item";
-
-
-// import FriendsContainer from "./friends_container";
-
 
 class LeftNav extends React.Component {
     constructor(props) {
@@ -22,8 +17,8 @@ class LeftNav extends React.Component {
     render() {
         return (
              <section className="left-list">
-                 <div className="left-options"><Link className="left-links" id="left-selected" to="/dashboard">&#128233; Dashboard</Link></div>
-                 <div className="left-options"><Link className="left-links" to="/all"> &#128221; All expenses</Link></div>
+                <div className="left-options"><NavLink className="left-links" id="left-selected" to="/dashboard">&#128233; Dashboard</NavLink></div>
+                <div className="left-options"><NavLink className="left-links" to="/all"> &#128221; All expenses</NavLink></div>
                  <br />
                 <section className="left-nav-comp">
                     <div className="f-header">
@@ -51,16 +46,7 @@ class LeftNav extends React.Component {
     }
 }
 
-const mSTP = state => ({
-    friendIds: state.entities.users[state.session.id].friendIds
-})
-
-
-const mDTP = dispatch => ({
-    openModal: modal => dispatch(openModal(modal)),
-    fetchUsers: () => dispatch(fetchUsers())
-})
 
 
 
-export default connect(mSTP, mDTP)(LeftNav);
+export default withRouter(LeftNav);
