@@ -3,6 +3,7 @@ import * as APIUtil from "../util/expenses_api_util"
 export const RECEIVE_EXPENSES = "RECEIVE_EXPENSES";
 export const RECEIVE_EXPENSE = "RECEIVE_EXPENSE";
 export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
+export const RECIEVE_EXPENSE_ERRORS = "RECIEVE_EXPENSE_ERRORS";
 
 
 const receiveExpenses = expenses => {
@@ -21,10 +22,18 @@ const receiveExpense = expense => {
 
 const removeExpense = expenseId => {
     return ({
-        tyoe: REMOVE_EXPENSE
+        type: REMOVE_EXPENSE,
+        expenseId
     })
 };
 
+
+const receieveExpenseErrors = errors => {
+    return ({
+        type: RECIEVE_EXPENSE_ERRORS,
+        errors
+    })
+}
 
 export const fetchExpenses = () => dispatch => {
     return APIUtil.fetchExpenses().then(expenses => dispatch(receiveExpenses(expenses)))
@@ -35,7 +44,10 @@ export const fetchExpense = expenseId => dispatch => {
 };
 
 export const createExpense = expense => dispatch => {
-    return APIUtil.createExpense(expense).then(expense => dispatch(receiveExpense(expense)))
+    return APIUtil.createExpense(expense).then(expense => dispatch(receiveExpense(expense)), 
+        errors => {
+            dispatch(receieveExpenseErrors(errors.responseJSON))}
+        )
 }
 
 export const deleteExpense = expenseId => dispatch => {

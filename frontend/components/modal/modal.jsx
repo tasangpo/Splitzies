@@ -13,7 +13,7 @@ function Modal({modal, closeModal}) {
         case 'addFriend':
             component = <FriendsForm />
             break;
-        case 'addEpense':
+        case 'addExpense':
             component = < AddExpenseForm/>
             break;
 

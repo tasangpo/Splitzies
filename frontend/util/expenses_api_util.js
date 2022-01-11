@@ -16,7 +16,7 @@ export const createExpense = expense => {
     return $.ajax({
         method: "POST",
         url: "api/expenses",
-        data: {expense}
+        data: { expense }
     })
 }
 

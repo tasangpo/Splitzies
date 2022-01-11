@@ -33,7 +33,6 @@ class FriendsForm extends React.Component {
     }
 
     render() {
-        const { errors } = this.props;
         return (
             <div className="modal-frd">
                 <form className="add-frd-form" onSubmit={this.handleSubmit}>

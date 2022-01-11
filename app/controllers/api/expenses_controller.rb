@@ -14,7 +14,7 @@ class Api::ExpensesController < ApplicationController
         if @expense.save
             render :show
         else
-            render json: ['Not Valid']
+            render json: @expense.errors.full_messages, status: 422
         end
     end
 

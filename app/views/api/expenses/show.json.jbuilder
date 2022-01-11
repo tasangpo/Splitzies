@@ -1,1 +1,1 @@
-json.partial! "api/users/user", user: current_user
+json.partial! "api/expenses/expense", expense: @expense

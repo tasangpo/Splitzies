@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchExpenses } from "../../actions/expense_actions";
 import { fetchUsers } from "../../actions/user_actions";
+import { openModal } from "../../actions/modal_actions"
+
 
 const mSTP = state => ({
     expenseIds: state.entities.users[state.session.id].expenseIds,
@@ -11,7 +13,8 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     fetchExpenses: () => dispatch(fetchExpenses()),
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    openModal: modal => dispatch(openModal(modal)),
 });
 
 class AllExpenses extends React.Component {
@@ -30,7 +33,7 @@ class AllExpenses extends React.Component {
             <div>
                 <section className="all-exp-head">
                     <h1>All expenses</h1>
-                    <button>Add an expense</button>
+                    <button onClick={() => this.props.openModal('addExpense')}>Add an expense</button>
                 </section>
                 <ul>
                     {currentUserExpenses.map(expense => <li key={expense.id} className="exp-item">{`${expense.date}: ${expense.description}: $${expense.amount}`}</li>)}

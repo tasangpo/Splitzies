@@ -1,13 +1,17 @@
 import React from "react";
 
 class Dashboard extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         return (
                 <div className="dash-header">
                     <div className="top-dash-head">
                         <h1>Dashboard</h1>
                         <div className="dash-options">
-                            <button className="dash-opt-btn" id="add-expense-btn">Add an expense</button>
+                        <button onClick={() => this.props.openModal('addExpense')} className="dash-opt-btn" id="add-expense-btn">Add an expense</button>
                             &nbsp; &nbsp;
                             <button className="dash-opt-btn" id="settle-btn">Settle up</button>
                         </div>

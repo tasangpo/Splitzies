@@ -19,4 +19,6 @@ class Expense < ApplicationRecord
         foreign_key: :payer_id,
         class_name: :User
 
+
+
 end

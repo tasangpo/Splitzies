@@ -2,6 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import { fetchUsers } from "../../actions/user_actions";
 import { removeFriendAction } from "../../actions/friendship_actions";
+import { openModal } from "../../actions/modal_actions"
+
 
 const mSTP = state => {
     return ({
@@ -11,7 +13,9 @@ const mSTP = state => {
 
 const mDTP = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
-    removeFriendAction: friendId => dispatch(removeFriendAction(friendId))
+    removeFriendAction: friendId => dispatch(removeFriendAction(friendId)),
+    openModal: modal => dispatch(openModal(modal)),
+
 });
 
 class FriendsShow extends React.Component {
@@ -31,7 +35,7 @@ class FriendsShow extends React.Component {
                 <section className="frd-hd-show">
                     <h1> &#129503; {friend ? friend.name : ''}</h1>
                     <div className="frd-show-btns">   
-                        <button id="frd-show-btn1">Add an expense</button>
+                        <button id="frd-show-btn1" onClick={() => this.props.openModal('addExpense')} >Add an expense</button>
                         <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friendId)}>Remove friend</button>
                     </div>
                 </section>
