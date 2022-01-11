@@ -53,3 +53,11 @@ Friendship.create(user_id: 1, friend_id: 4)
 Friendship.create(user_id: 1, friend_id: 5)
 Friendship.create(user_id: 1, friend_id: 6)
 Friendship.create(user_id: 1, friend_id: 7)
+
+
+Expense.create(payer_id: 1, description: "Breakfast", amount: 12.00, date: "2022/01/02", split_option: "equal")
+Expense.create(payer_id: 1, description: "Movies", amount: 34.00, date: "2022/01/03", split_option: "equal")
+Expense.create(payer_id: 1, description: "Groceries", amount: 18.00, date: "2022/01/04", split_option: "equal")
+Expense.create(payer_id: 1, description: "Gas", amount: 30.00, date: "2022/01/05", split_option: "equal")
+Expense.create(payer_id: 1, description: "Dinner", amount: 40.00, date: "2022/01/06", split_option: "equal")
+Expense.create(payer_id: 2, description: "Birthday", amount: 50.00, date: "2022/01/06", split_option: "equal")

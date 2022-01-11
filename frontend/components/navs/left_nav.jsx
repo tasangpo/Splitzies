@@ -6,14 +6,13 @@ import EachFriendItem from "../friends/each_friend_item";
 
 class LeftNav extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     componentDidMount() {
         this.props.fetchUsers();
     }
 
-    
     render() {
         return (
              <section className="left-list">
@@ -36,7 +35,6 @@ class LeftNav extends React.Component {
                         <button onClick={() => this.props.openModal('addFriend')} style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
                      </div>
                      <div>
-                        {/* <FriendsContainer/> */}
                         {this.props.friendIds.map(id => <EachFriendItem userId={id} key={id}/>)}
                      </div>
                  </section>

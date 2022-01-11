@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import FriendsForm from "../friends/friend_form"
 import { closeModal } from "../../actions/modal_actions";
+import FriendsForm from "../friends/friend_form"
+import AddExpenseForm from "../expenses/add_expense_form"
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -11,7 +12,11 @@ function Modal({modal, closeModal}) {
     switch (modal) {
         case 'addFriend':
             component = <FriendsForm />
-            break
+            break;
+        case 'addEpense':
+            component = < AddExpenseForm/>
+            break;
+
         default:
             return null
     }

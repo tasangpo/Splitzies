@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_174052) do
+ActiveRecord::Schema.define(version: 2022_01_09_215419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expenses", force: :cascade do |t|
+    t.integer "payer_id", null: false
+    t.string "description", null: false
+    t.float "amount", null: false
+    t.date "date", null: false
+    t.string "split_option", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["payer_id"], name: "index_expenses_on_payer_id"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer "user_id", null: false

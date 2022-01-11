@@ -18,7 +18,7 @@ class FriendsForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.addFriendAction(this.state)
+        (this.props.addFriendAction(this.state))
     }
 
     renderErrors() {
@@ -32,30 +32,22 @@ class FriendsForm extends React.Component {
         )
     }
 
-    renderSuccess() {
-        return (
-            <div>
-                <h2>Friend has been added :)</h2>
-            </div>
-        )
-    }
-
-
     render() {
         const { errors } = this.props;
         return (
             <div className="modal-frd">
                 <form className="add-frd-form" onSubmit={this.handleSubmit}>
-                    <h1 id="inv-frd-header">&#128233;&nbsp;&nbsp;Invite friends</h1>
+                    <div id="inv-frd-header">
+                        <h1 >&#128233;&nbsp;&nbsp;Invite friends</h1>
+                        <button onClick={this.props.closeModal}>&#10060;</button>
+                    </div>  
                     <input type="text" value={this.state.email} placeholder="To:   email address" onChange={this.update('email')} />
                     <div className="frd-msg-btn-container">
                         <h5>Note: user must be signed up on the site</h5>
                         <button id="add-orange-btn">Add friend</button>
                     </div>  
                 </form>
-                {errors.length !==0 ? this.renderErrors() : this.renderSuccess}
-                
-
+                {this.renderErrors()}
             </div>
             
         )

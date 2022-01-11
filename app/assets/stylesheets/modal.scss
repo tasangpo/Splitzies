@@ -56,6 +56,14 @@
 #inv-frd-header {
   font-size: 24px;
   font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#inv-frd-header button{
+  background-color: transparent;
+  border: none;
 }
 
 #add-orange-btn {

@@ -4,10 +4,10 @@ class Api::FriendshipsController < ApplicationController
         @friend = User.find_by(email: params[:friendship][:email])
         if @friend
             @friendship = Friendship.new(user_id: current_user.id, friend_id: @friend.id)
-            if @friendship.save!
-                render "api/friendships/show"
+            if @friendship.save
+                render :show
             else
-                render json: [`You are already friends with #{@friend.name}`], status: 422
+                render json: ['You are already friends with this user'], status: 422
             end
         else
             render json: ['Invalid user – please try again.'], status: 422
@@ -16,8 +16,12 @@ class Api::FriendshipsController < ApplicationController
 
     def destroy
         @friendship = Friendship.find_by(user_id: current_user.id, friend_id: params[:id]);
-        @friendship.destroy
-        render "api/users/show"
+        if @friendship
+            @friendship.destroy
+            render :show
+        else
+            render json: ['Friendship not found']
+        end
     end
 
     private

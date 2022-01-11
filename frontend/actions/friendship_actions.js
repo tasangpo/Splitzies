@@ -5,16 +5,16 @@ export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
 export const RECEIVE_FRIENDSHIP_ERRORS = "RECEIVE_FRIENDSHIP_ERRORS"
 export const REMOVE_FRIENDSHIP_ERRORS = "REMOVE_FRIENDSHIP_ERRORS"
 
-const receiveFriendship = userId => {
+const receiveFriendship = user => {
     return ({
     type: RECEIVE_FRIENDSHIP,
-    userId
+    user
     });
 }
 
-const removeFriendship = friendId => ({
+const removeFriendship = user => ({
     type: REMOVE_FRIENDSHIP,
-    friendId
+    user
 });
 
 const receiveFriendshipErrors = errors => {
@@ -24,15 +24,14 @@ const receiveFriendshipErrors = errors => {
     };
 };
 
-export const removeFriendshipErrors = () => ({
-    type: REMOVE_FRIENDSHIP_ERR0RS
-})
 
 export const addFriendAction = friendship => dispatch => {
-    return FriendshipAPIUtil.addFriend(friendship).then(friendship => dispatch(receiveFriendship(friendship))
-    ).fail(errors => dispatch(receiveFriendshipErrors(errors.responseJSON)));
+    return FriendshipAPIUtil.addFriend(friendship).then(friendship => dispatch(receiveFriendship(friendship)), 
+    err => {
+        dispatch(receiveFriendshipErrors(err.responseJSON))}
+    )
 };
     
-export const removeFriendAction = friendId => dispatch => (
-    FriendshipAPIUtil.removeFriend(friendId).then(() => dispatch(removeFriendship(friendId))), err => dispatch(receiveFriendshipErrors(err.responseJSON))
-)
+export const removeFriendAction = friendId => dispatch => {
+    return FriendshipAPIUtil.removeFriend(friendId).then(user => dispatch(removeFriendship(user)))
+}

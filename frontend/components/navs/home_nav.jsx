@@ -5,6 +5,8 @@ import DashboardContainer from "../dashboard/dashboard_container";
 import ProfileMenuContainer from "./profile_menu"
 import LeftNav from "./left_nav_container";
 import FriendShow from "../friends/friends_show"
+import AllExpenses from "../expenses/all_expenses";
+
 
 class HomeNav extends React.Component {
     render() {
@@ -21,13 +23,13 @@ class HomeNav extends React.Component {
 
                 <div className="main-container">
                     <section className="left-console">
-                        <LeftNav />
+                        <LeftNav currentUser={this.props.currentUser}/>
                     </section>
                     <section className="middle-console">
                         <Switch>
                             < ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
-                            < ProtectedRoute exact path="/all" component={DashboardContainer} />
-                            < ProtectedRoute exact path="/friends/friendId" component={DashboardContainer} />
+                            < ProtectedRoute exact path="/all" component={AllExpenses} />
+                            < ProtectedRoute exact path="/friends/:friendId" component={FriendShow} />
                         </Switch>
                     </section>
                     <section className="right-console">
