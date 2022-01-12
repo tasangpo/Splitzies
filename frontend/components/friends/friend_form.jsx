@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addFriendAction } from "../../actions/friendship_actions"
+import { addFriendAction, removeFriendshipErrors } from "../../actions/friendship_actions"
 import { closeModal } from "../../actions/modal_actions";
 
 class FriendsForm extends React.Component {
@@ -11,6 +11,10 @@ class FriendsForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     };
+
+    componentDidMount() {
+        this.props.removeFriendshipErrors();
+    }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value})
@@ -59,7 +63,8 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     addFriendAction: friend => dispatch(addFriendAction(friend)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    removeFriendshipErrors: () => dispatch(removeFriendshipErrors())
 })
 
 export default connect(mSTP, mDTP)(FriendsForm);

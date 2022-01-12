@@ -26,7 +26,15 @@ class User < ApplicationRecord
   has_many :expenses,
     primary_key: :id,
     foreign_key: :payer_id,
-    class_name: :Expense
+    class_name: :Expense,
+    dependent: :destroy
+
+  has_many :expense_splits,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :ExpenseSplit,
+    dependent: :destroy
+  
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -48,6 +56,7 @@ class User < ApplicationRecord
     save!
     self.session_token
   end
+
 
   private
 

@@ -4,7 +4,7 @@ export const RECEIVE_EXPENSES = "RECEIVE_EXPENSES";
 export const RECEIVE_EXPENSE = "RECEIVE_EXPENSE";
 export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
 export const RECIEVE_EXPENSE_ERRORS = "RECIEVE_EXPENSE_ERRORS";
-
+export const REMOVE_EXPENSE_ERRORS = "REMOVE_EXPENSE_ERRORS"
 
 const receiveExpenses = expenses => {
     return ({
@@ -32,6 +32,12 @@ const receieveExpenseErrors = errors => {
     return ({
         type: RECIEVE_EXPENSE_ERRORS,
         errors
+    })
+}
+
+export const removeExpenseErrors = () => {
+    return ({
+        type: REMOVE_EXPENSE_ERRORS
     })
 }
 

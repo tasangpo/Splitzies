@@ -116,14 +116,30 @@
 #owe-btm-cont div {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     align-items: start;
     padding-left: 10px;
 }
 
+
+
+
 #owe-btm-left {
     border-right: 1px solid #999999;
 }
+
+
+.dash-box-frd {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.frd-img-exp {
+    display: flex;
+    flex-direction: column;
+}
+
 
 .frd_name {
     font-size: 16px;

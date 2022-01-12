@@ -19,6 +19,11 @@ class Expense < ApplicationRecord
         foreign_key: :payer_id,
         class_name: :User
 
-
+    
+    has_many :splits,
+        primary_key: :id,
+        foreign_key: :expense_id,
+        class_name: :ExpenseSplit,
+        dependent: :destroy
 
 end

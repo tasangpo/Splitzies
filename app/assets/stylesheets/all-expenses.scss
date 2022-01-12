@@ -33,7 +33,75 @@
 .exp-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 60px;
     border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+
+.exp-item:hover #del-exp {
+    display: inline-block;
+}
+
+#del-exp {
+    display: none;
+    border: none;
+    background-color: transparent;
+}
+
+#del-exp:hover {
+    border-bottom: 3px solid red;
+    width: 30px;
+}
+
+.exp-left {
+    display: flex;
+    align-items: center;
+}
+
+#exp-date {
+    width: 50px;
+    font-family: 'Lato';
+    font-size: 14px;
+    color: #999999;
+}
+
+#exp-date strong {
+    text-decoration: underline;
+}
+
+.exp-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 30px;
+    margin-right: 10px;   
+}
+
+.who-who {
+    display: flex;
+    width: 60%;
+    font-family: 'Lato';
+}
+
+.bo-hoo {
+    width: 50%;
+    text-align: end;
+    padding-right: 10px;
+}
+
+.yours {
+    width: 50%;
+    text-align: start;
+    padding-left: 10px;
+}
+
+#payer-name {
+    color: #999999;
+    font-size: 14px;
+}
+
+#paid-amount {
+    font-weight: bold;
 }

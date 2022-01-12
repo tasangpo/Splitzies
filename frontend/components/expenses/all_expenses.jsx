@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchExpenses } from "../../actions/expense_actions";
 import { fetchUsers } from "../../actions/user_actions";
 import { openModal } from "../../actions/modal_actions"
+import ExpenseShow from "./expense_show"
 
 
 const mSTP = state => ({
@@ -28,7 +29,9 @@ class AllExpenses extends React.Component {
     }
 
     render() {
-        const currentUserExpenses = this.props.expenses.filter(expense => expense.payer_id === this.props.currentUser.id)
+        // const currentUserExpenses = this.props.expenses.filter(expense => expense.payer_id === this.props.currentUser.id)
+        const currentUserExpenses = this.props.expenses.filter(expense => expense.splitterIds.includes(this.props.currentUser.id))
+
         return (
             <div>
                 <section className="all-exp-head">
@@ -36,7 +39,7 @@ class AllExpenses extends React.Component {
                     <button onClick={() => this.props.openModal('addExpense')}>Add an expense</button>
                 </section>
                 <ul>
-                    {currentUserExpenses.map(expense => <li key={expense.id} className="exp-item">{`${expense.date}: ${expense.description}: $${expense.amount}`}</li>)}
+                    {currentUserExpenses.map(expense => <ExpenseShow key={expense.id} expense={expense}/>)}
                 </ul>
             </div>
             

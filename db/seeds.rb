@@ -8,6 +8,8 @@
 
 User.destroy_all
 Friendship.destroy_all
+Expense.destroy_all
+ExpenseSplit.destroy_all
 
 User.create(name: 'Guest User', email: 'guest_user@demo.com', password: 'password');
 User.create(name: 'David Suh', email: 'david@email.com', password: 'password');
@@ -55,9 +57,31 @@ Friendship.create(user_id: 1, friend_id: 6)
 Friendship.create(user_id: 1, friend_id: 7)
 
 
-Expense.create(payer_id: 1, description: "Breakfast", amount: 12.00, date: "2022/01/02", split_option: "equal")
-Expense.create(payer_id: 1, description: "Movies", amount: 34.00, date: "2022/01/03", split_option: "equal")
-Expense.create(payer_id: 1, description: "Groceries", amount: 18.00, date: "2022/01/04", split_option: "equal")
-Expense.create(payer_id: 1, description: "Gas", amount: 30.00, date: "2022/01/05", split_option: "equal")
-Expense.create(payer_id: 1, description: "Dinner", amount: 40.00, date: "2022/01/06", split_option: "equal")
-Expense.create(payer_id: 2, description: "Birthday", amount: 50.00, date: "2022/01/06", split_option: "equal")
+Expense.create(payer_id: 1, description: "Piggy Back Ride", amount: 12.00, date: "2022/01/02", split_option: "equal")
+Expense.create(payer_id: 2, description: "Movies", amount: 40.00, date: "2022/01/03", split_option: "equal")
+Expense.create(payer_id: 1, description: "Groceries", amount: 30.00, date: "2022/01/04", split_option: "equal")
+Expense.create(payer_id: 4, description: "Uber", amount: 45.00, date: "2022/01/05", split_option: "equal")
+Expense.create(payer_id: 7, description: "Dinner", amount: 40.00, date: "2022/01/06", split_option: "equal")
+Expense.create(payer_id: 6, description: "Birthday", amount: 50.00, date: "2022/01/06", split_option: "equal")
+
+ExpenseSplit.create(expense_id: 1, user_id: 1)
+ExpenseSplit.create(expense_id: 1, user_id: 2)
+
+ExpenseSplit.create(expense_id: 2, user_id: 1)
+ExpenseSplit.create(expense_id: 2, user_id: 2)
+ExpenseSplit.create(expense_id: 2, user_id: 4)
+
+ExpenseSplit.create(expense_id: 3, user_id: 1)
+ExpenseSplit.create(expense_id: 3, user_id: 5)
+ExpenseSplit.create(expense_id: 3, user_id: 6)
+ExpenseSplit.create(expense_id: 3, user_id: 3)
+
+ExpenseSplit.create(expense_id: 4, user_id: 1)
+ExpenseSplit.create(expense_id: 4, user_id: 4)
+
+ExpenseSplit.create(expense_id: 5, user_id: 1)
+ExpenseSplit.create(expense_id: 5, user_id: 7)
+ExpenseSplit.create(expense_id: 5, user_id: 5)
+
+ExpenseSplit.create(expense_id: 6, user_id: 1)
+ExpenseSplit.create(expense_id: 6, user_id: 6)

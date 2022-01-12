@@ -20,7 +20,7 @@ class Api::ExpensesController < ApplicationController
 
     def destroy
         @expense = Expense.find(params[:id])
-        @bill.destroy
+        @expense.destroy
     end
 
 

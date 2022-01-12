@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUsers } from "../../actions/user_actions"
-import { createExpense } from "../../actions/expense_actions";
+import { createExpense, removeExpenseErrors } from "../../actions/expense_actions";
 import { closeModal } from "../../actions/modal_actions";
 
 
@@ -16,7 +16,8 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
     createExpense: expense => dispatch(createExpense(expense)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    removeExpenseErrors: () => dispatch(removeExpenseErrors())
 });
 
 
@@ -34,7 +35,8 @@ class AddExpenseForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers()
+        this.props.fetchUsers();
+        this.props.removeExpenseErrors();
     }
 
     update(field) {
@@ -72,7 +74,6 @@ class AddExpenseForm extends React.Component {
                    <div className="with-you">
                         <label> With <strong style={{ 'fontWeight': 'bold' }}>you</strong> and: &nbsp;	&nbsp;
                             <select className="name-field" name="friend" id="friend">
-                                <option value="none" selected disabled>Select a friend</option>
                                 {this.props.friendIds.map(id => <option value={id} key={id}>{this.props.users[id].name}</option>)}
                             </select>
                         </label>

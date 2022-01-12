@@ -2,8 +2,9 @@ import * as FriendshipAPIUtil from "../util/friendships_api_util";
 
 export const RECEIVE_FRIENDSHIP = "RECEIVE_FRIENDSHIP";
 export const REMOVE_FRIENDSHIP = "REMOVE_FRIENDSHIP";
-export const RECEIVE_FRIENDSHIP_ERRORS = "RECEIVE_FRIENDSHIP_ERRORS"
-export const REMOVE_FRIENDSHIP_ERRORS = "REMOVE_FRIENDSHIP_ERRORS"
+export const RECEIVE_FRIENDSHIP_ERRORS = "RECEIVE_FRIENDSHIP_ERRORS";
+export const REMOVE_FRIENDSHIP_ERRORS = "REMOVE_FRIENDSHIP_ERRORS";
+
 
 const receiveFriendship = user => {
     return ({
@@ -23,6 +24,13 @@ const receiveFriendshipErrors = errors => {
         errors
     };
 };
+
+export const removeFriendshipErrors = () => {
+    return {
+        type: REMOVE_FRIENDSHIP_ERRORS
+    }
+};
+
 
 
 export const addFriendAction = friendship => dispatch => {
