@@ -11,7 +11,7 @@ const mapStateToProps = state => {
     return {
         currentUser: state.entities.users[state.session.id],
         users: state.entities.users,
-        expenses: Object.values(state.entities.expenses)
+        expenses: Object.values(state.entities.expenses),
     };
 };
 
@@ -37,8 +37,12 @@ class Dashboard extends React.Component {
             return null
         }
 
-        const expenseIds = this.props.currentUser.expenseIds; // id of expenses where user is involved
-        const expenses = this.props.expenses.filter(expense => expenseIds.includes(expense.id)); // getting needed expenses from all expenses
+        // const expenseIds = this.props.currentUser.expenseIds; // id of expenses where user is involved
+        // const expenses = this.props.expenses.filter(expense => expenseIds.includes(expense.id)); // getting needed expenses from all expenses
+        const expenses = this.props.expenses.filter(expense => expense.splitterIds.includes(this.props.currentUser.id))
+        
+
+
 
 
         // this is all the people who are splitter where you paid (unique id's only)
