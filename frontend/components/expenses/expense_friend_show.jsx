@@ -98,7 +98,6 @@ class ExpenseFriendShow extends React.Component {
                 })}
             </div>         
 
-
             </div>
         )
     };
