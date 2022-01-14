@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom'
+
 import { logout } from '../../actions/session_actions';
 import { openModal } from "../../actions/modal_actions"
 import { fetchExpenses } from "../../actions/expense_actions";
@@ -36,8 +38,78 @@ class Dashboard extends React.Component {
         }
 
         const expenseIds = this.props.currentUser.expenseIds; // id of expenses where user is involved
+        const expenses = this.props.expenses.filter(expense => expenseIds.includes(expense.id)); // getting needed expenses from all expenses
 
-        const expenses = this.props.expenses.filter(expense => expenseIds.includes(expense.id)); // getting those needed expenses from all expenses
+
+        // this is all the people who are splitter where you paid (unique id's only)
+        // and all the payers where you are splitter
+        let peopleId = [] 
+        for (let expense of expenses) {
+            if (expense.payer_id === this.props.currentUser.id) {
+                for (let id of expense.splitterIds) {
+                    if (!peopleId.includes(id) && id !== this.props.currentUser.id) {
+                        peopleId.push(id)
+                    }
+                }
+            } else if (expense.splitterIds.includes(this.props.currentUser.id) && (!peopleId.includes(expense.payer_id))) {
+                peopleId.push(expense.payer_id)
+            }
+        };
+
+        peopleId = peopleId.filter(id => this.props.currentUser.friendIds.includes(id));
+
+
+        // Mapping every id in peopleId to an html element that will either go on left if we owe them or right if they owe us
+        const mappedLeft = peopleId.map(id => {
+            const friend = this.props.users[id];
+            const relatedExpenses = this.props.expenses.filter(expense => (expense.payer_id === friend.id && expense.splitterIds.includes(this.props.currentUser.id)) || (expense.payer_id === this.props.currentUser.id && expense.splitterIds.includes(friend.id)))
+            let relativeBlance = 0;
+            for (const expense of relatedExpenses) {
+                const split = expense.amount / expense.splitterIds.length
+                if (expense.payer_id === this.props.currentUser.id) {
+                    relativeBlance += split
+                } else {
+                    relativeBlance -= split
+                }
+            };
+            relativeBlance = relativeBlance.toFixed(2);
+            if (relativeBlance < 0) {
+                return (
+                    <NavLink to={`/friends/${id}`} className='dash-box-frd' key={id}>
+                        <h5 className="frd-name">{friend.name}</h5>
+                        <p className="frd-owe">you owe <strong style={{'fontWeight' : 'bolder'}}>${(relativeBlance * -1).toFixed(2)}</strong></p>
+                    </NavLink>
+                )
+            } else {
+                return null
+            }
+        })
+
+        const mappedRight = peopleId.map(id => {
+            const friend = this.props.users[id];
+            const relatedExpenses = this.props.expenses.filter(expense => (expense.payer_id === friend.id && expense.splitterIds.includes(this.props.currentUser.id)) || (expense.payer_id === this.props.currentUser.id && expense.splitterIds.includes(friend.id)))
+            let relativeBlance = 0;
+            for (const expense of relatedExpenses) {
+                const split = expense.amount / expense.splitterIds.length
+                if (expense.payer_id === this.props.currentUser.id) {
+                    relativeBlance += split
+                } else {
+                    relativeBlance -= split
+                }
+            };
+            relativeBlance = relativeBlance.toFixed(2);
+            if (relativeBlance > 0) {
+                return (
+                    <NavLink to={`/friends/${id}`} className='dash-box-frd' id="db-right" key={id}>
+                        <h5 className='frd-name'>{friend.name}</h5>
+                        <p className='frd-owed'>owes you <strong style={{'fontWeight': 'bolder'}}>${relativeBlance}</strong></p>
+                    </NavLink>
+                )
+            }
+        })
+
+
+        
 
         // this are the expenses where user is payer so they are owed
         let paidExpenses = expenses.filter(expense => expense.payer_id === this.props.currentUser.id)
@@ -54,10 +126,8 @@ class Dashboard extends React.Component {
         for (const expense of owedExpenses) {
             userOwes -= (expense.amount / expense.splitterIds.length)
         }
-
+        // overall balance
         let totalBalance = userOwed + userOwes
-
-
 
         return (
             <div className="dash-header">
@@ -66,7 +136,7 @@ class Dashboard extends React.Component {
                     <div className="dash-options">
                         <button onClick={() => this.props.openModal('addExpense')} className="dash-opt-btn" id="add-expense-btn">Add an expense</button>
                         &nbsp; &nbsp;
-                        <button className="dash-opt-btn" id="settle-btn">Settle up</button>
+                        <button onClick={() => alert("Let's settle up after bootcamp when we land a job!")} className="dash-opt-btn" id="settle-btn">Settle up</button>
                     </div>
                 </div>
                 <div className="header-balances">
@@ -92,30 +162,11 @@ class Dashboard extends React.Component {
                         <h2>YOU ARE OWED</h2>
                     </div>
                     <div id="owe-btm-cont">
-                        <div id="owe-btm-left">
-                            {owedExpenses.map(expense => {
-                                let name = this.props.users[expense.payer_id].name
-                                return (
-                                    <div className='dash-box-frd' key={expense.id}> 
-                                            <h5 className="frd-name">{name}</h5>
-                                            <p className="frd-owe">you owe ${(expense.amount / expense.splitterIds.length).toFixed(2)}</p>           
-                                    </div>
-                                )
-                            } )} 
+                        <div className='sep'>
+                            {mappedLeft}
                         </div>
-                        <div>
-                           {paidExpenses.map(expense => {
-                               const splitterIds = expense.splitterIds.filter(id => id !== this.props.currentUser.id);
-                               const splitters = splitterIds.map(id =>
-                                <div className='dash-box-frd' key={id}> 
-                                    <h5 className="frd-name">{this.props.users[id].name} </h5>
-                                    <p className='frd-owed'>owes you ${(expense.amount/(splitterIds.length + 1)).toFixed(2)}</p>
-                                </div>)
-                               return (
-                                splitters
-                               )
-                           })}
-                            
+                        <div className='sep'>
+                            {mappedRight}
                         </div>
                     </div>
                 </div>
@@ -127,12 +178,3 @@ class Dashboard extends React.Component {
 export default connect(mapStateToProps,mapDispatchToProps)(Dashboard);
 
 
-{/* <div>
-    <h5 className="frd-name">David Suh</h5>
-    <p className="frd-owe">you owe $5.00</p>
-</div> */}
-
-{/* <div>
-    <h5 className="frd-name">John Cigale</h5>
-    <p className="frd-owed">owes you $15.00</p>
-</div> */}

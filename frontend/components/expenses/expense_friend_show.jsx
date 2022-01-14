@@ -17,7 +17,7 @@ const mDTP = dispatch => {
     })
 };
 
-class ExpenseShow extends React.Component{
+class ExpenseFriendShow extends React.Component {
     constructor(props) {
         super(props)
     };
@@ -28,17 +28,17 @@ class ExpenseShow extends React.Component{
 
     reveal(id) {
         const ele = document.getElementById(id)
-            if (ele.style.height === 'auto') {
-                ele.style.height = 0
-            } else {
-                ele.style.height = 'auto'
-            }
+        if (ele.style.height === 'auto') {
+            ele.style.height = 0
+        } else {
+            ele.style.height = 'auto'
+        }
     }
 
     render() {
         const id = this.props.expense.id
 
-        const totalDisplay = parseFloat(this.props.expense.amount).toFixed(2)
+        const totalDisplay = parseFloat(this.props.expense.amount).toFixed(2);
 
         const { users } = this.props
         if (Object.keys(this.props.users).length < 2) {
@@ -49,12 +49,10 @@ class ExpenseShow extends React.Component{
         let name = payer.name
 
         let split = this.props.expense.amount / this.props.expense.splitterIds.length
-
         if (payer === this.props.currentUser) {
             name = 'You';
-            split = this.props.expense.amount - split; // if you are payer, you are owed total minus split
         }
-        split = parseFloat(split).toFixed(2)
+        split = split.toFixed(2)
         return (
 
             <div onClick={() => setTimeout(() => this.reveal(id), 100)} className="exp-all-container">
@@ -64,7 +62,7 @@ class ExpenseShow extends React.Component{
                         &nbsp;	&nbsp;
                             <span style={{ 'fontSize': '30px' }}>&#128203;</span>
                         &nbsp;	&nbsp;
-                        <div style={{ 'textAlign': 'start' }}>{`${this.props.expense.description}`}</div>
+                        <div style={{'textAlign':'start'}}>{`${this.props.expense.description}`}</div>
                         &nbsp;	&nbsp;
 
                     </div>
@@ -79,34 +77,33 @@ class ExpenseShow extends React.Component{
                             {payer === this.props.currentUser ?
                             <h3 id="paid-amount" style={{ 'color': '#5BC5A7' }}>{`$${split}`}</h3> :
                             <h3 id="paid-amount" style={{ 'color': '#FF652F' }}>{`$${split}`}</h3>
-                                }
-                            </div>
-
+                            }
                         </div>
-                        <button id="del-exp" onClick={() => this.props.deleteExpense(this.props.expense.id)}>&#10060;</button>
+
                     </div>
-
-                   
-
+                    <button id="del-exp" onClick={() => this.props.deleteExpense(this.props.expense.id)}>&#10060;</button>
                 </div>
 
+            </div>
 
-                <div id={id} style={{'height': '0', 'overflow':'hidden', 'textAlign':'start'}}>
-                    <h5 className="hidden-texts"><strong className="hidden-strong">{users[this.props.expense.payer_id].name}</strong> paid <strong className="hidden-strong">${totalDisplay}</strong> and owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong> </h5>
-                    
-                    {this.props.expense.splitterIds.map(id => {
-                        if (id === this.props.expense.payer_id) {
-                            return null
-                        } else {
-                            return <h5 key={id} className="hidden-texts"><strong className="hidden-strong">{users[id].name}</strong> owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong></h5>
-                        }
-                    })}
-                </div>   
-            </div>            
+            <div id={id} style={{ 'height': '0', 'overflow': 'hidden', 'textAlign': 'start' }}>
+                <h5 className="hidden-texts"><strong className="hidden-strong">{users[this.props.expense.payer_id].name}</strong> paid <strong className="hidden-strong">${totalDisplay}</strong> and owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong> </h5>
+                
+                {this.props.expense.splitterIds.map(id => {
+                    if (id === this.props.expense.payer_id) {
+                        return null
+                    } else {
+                        return <h5 key={id} className="hidden-texts"><strong className="hidden-strong">{users[id].name}</strong> owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong></h5>
+                    }
+                })}
+            </div>         
+
+
+            </div>
         )
     };
 }
 
-    
 
-export default connect(mSTP, mDTP)(ExpenseShow)
+
+export default connect(mSTP, mDTP)(ExpenseFriendShow)

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../../actions/session_actions"
+import { openModal } from "../../actions/modal_actions"
 
 class ProfileMenu extends React.Component {
     constructor(props) {
@@ -22,8 +23,8 @@ class ProfileMenu extends React.Component {
                 <button onFocus={this.toggleMenu} onBlur={this.toggleMenu} className="menu-btn" >
                     &#127744; &nbsp; {this.props.currentUser.name}
                     <ul onClick={e => e.stopPropagation()} className={this.state.show ? "options-list-show" : "options-list-hide"}> 
-                        <li className="options">Your Account</li>
-                        <li className="options">Create a group</li>
+                        <li onClick={() => this.props.openModal('addFriend')} className="options">Add a friend</li>
+                        <li onClick={() => this.props.openModal('addExpense')} className="options">Add an expense</li>
                         <li onClick={this.props.logout} className="options">Log out</li>   
                     </ul>
                 </button>
@@ -38,7 +39,7 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    
+    openModal: modal => dispatch(openModal(modal))  
 })
 
 export default connect(mSTP, mDTP)(ProfileMenu);

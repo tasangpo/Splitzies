@@ -29,9 +29,7 @@ class AllExpenses extends React.Component {
     }
 
     render() {
-        // const currentUserExpenses = this.props.expenses.filter(expense => expense.payer_id === this.props.currentUser.id)
         const currentUserExpenses = this.props.expenses.filter(expense => expense.splitterIds.includes(this.props.currentUser.id))
-
         return (
             <div>
                 <section className="all-exp-head">

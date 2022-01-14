@@ -8,6 +8,9 @@ import FriendShow from "../friends/friends_show"
 import AllExpenses from "../expenses/all_expenses";
 
 
+
+
+
 class HomeNav extends React.Component {
     render() {
         return(

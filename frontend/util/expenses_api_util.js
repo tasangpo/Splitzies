@@ -26,3 +26,16 @@ export const deleteExpense = expenseId => {
         url: `api/expenses/${expenseId}`
     })
 }
+
+
+export const createExpenseSplit = payload => {
+    return $.ajax({
+        method: "POST",
+        url: `api/expense_splits`, 
+        data: { payload }
+    })
+}
+
+
+
+

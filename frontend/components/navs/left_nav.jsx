@@ -13,16 +13,18 @@ class LeftNav extends React.Component {
         this.props.fetchUsers();
     }
 
+
+
     render() {
         return (
              <section className="left-list">
-                <div className="left-options"><NavLink className="left-links" id="left-selected" to="/dashboard">&#128233; Dashboard</NavLink></div>
+                <div className="left-options"><NavLink className="left-links"  to="/dashboard">&#128233; Dashboard</NavLink></div>
                 <div className="left-options"><NavLink className="left-links" to="/all"> &#128221; All expenses</NavLink></div>
                  <br />
                 <section className="left-nav-comp">
                     <div className="f-header">
                         <h1>GROUPS</h1>
-                        <button style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
+                        <button onClick={() => alert("FUNCTIONALITY COMING SOON, 2022")} style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
                     </div>
                     <div>
 

@@ -30,6 +30,13 @@
     background-color: #f54b0d;
 }
 
+.exp-all-container {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    cursor: pointer;
+}
+
 .exp-item {
     display: flex;
     align-items: center;
@@ -37,7 +44,6 @@
     height: 60px;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
-
 
 .exp-item:hover #del-exp {
     display: inline-block;
@@ -103,5 +109,18 @@
 }
 
 #paid-amount {
+    font-weight: bold;
+}
+
+
+
+.hidden-texts {
+    padding: 5px 0px 5px 10px ;
+    font-family: 'Lato';
+    font-size: 12px;
+    color: steelblue;
+}
+
+.hidden-strong {
     font-weight: bold;
 }

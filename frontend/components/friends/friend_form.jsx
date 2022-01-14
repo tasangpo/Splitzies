@@ -22,7 +22,11 @@ class FriendsForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        (this.props.addFriendAction(this.state))
+        this.props.addFriendAction(this.state).then(() => {
+            if (!this.props.errors.length) {
+                this.props.closeModal()
+            }
+        })
     }
 
     renderErrors() {

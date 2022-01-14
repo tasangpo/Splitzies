@@ -10,7 +10,7 @@
 #
 class ExpenseSplit < ApplicationRecord
     validates :expense_id, :user_id, presence: true
-    validates :expense_id, uniqueness: {scope: :user_id}
+    validates :user_id, uniqueness: {scope: :expense_id}
 
     belongs_to :expense,
         primary_key: :id,

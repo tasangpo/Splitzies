@@ -14,7 +14,7 @@
     border: 1px solid #cccccc;
     width: 40%;
     font-family: 'Lato';
-    z-index: 9;
+    z-index: 5;
 }
 
 .dash-header {
@@ -104,36 +104,42 @@
     justify-content: space-between;
     align-items: center;
     font-family: 'Lato';
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bolder;
     color: #999999;
     margin: 0px 6px 0px 6px;
 }
 
 #owe-btm-cont {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
-#owe-btm-cont div {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    align-items: start;
-    padding-left: 10px;
-}
 
 
-
-
-#owe-btm-left {
-    border-right: 1px solid #999999;
+.sep {
+    width: 100%;
 }
 
 
 .dash-box-frd {
-    padding: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 93.5%;
+    text-decoration: none;
+    color: black;
+    padding: 10px 0px 10px 10px;
+    overflow: hidden;
 }
+
+.dash-box-frd:hover {
+    background-color: rgb(235, 233, 233);
+}
+
+#db-right {
+}
+
 
 .frd-img-exp {
     display: flex;
@@ -169,6 +175,7 @@
 .right-console h2 {
     color: #999999;
     font-size: 13px;
+    font-weight: bolder;
     text-align: left;
     margin: 20px 0px 0px;
 }

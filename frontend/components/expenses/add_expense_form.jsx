@@ -1,15 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUsers } from "../../actions/user_actions"
-import { createExpense, removeExpenseErrors } from "../../actions/expense_actions";
+import { createExpense, removeExpenseErrors, createExpenseSplit } from "../../actions/expense_actions";
 import { closeModal } from "../../actions/modal_actions";
-
 
 
 const mSTP = state => ({
     friendIds: state.entities.users[state.session.id].friendIds,
     users: state.entities.users,
-    currentUserId: state.session.id,
+    currentUser: state.entities.users[state.session.id],
     errors: state.errors.expense
 });
 
@@ -17,7 +16,8 @@ const mDTP = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
     createExpense: expense => dispatch(createExpense(expense)),
     closeModal: () => dispatch(closeModal()),
-    removeExpenseErrors: () => dispatch(removeExpenseErrors())
+    removeExpenseErrors: () => dispatch(removeExpenseErrors()),
+    createExpenseSplit: payload => dispatch(createExpenseSplit(payload))
 });
 
 
@@ -25,11 +25,12 @@ class AddExpenseForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            payer_id: this.props.currentUserId,
+            payer_id: this.props.currentUser.id,
             description: "",
             amount: "",
             date: "",
-            split_option: "equal"
+            split_option: "equal",
+            splitters: [this.props.currentUser.id]
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -43,9 +44,42 @@ class AddExpenseForm extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
+    updateList() {
+        const list = this.state.splitters
+        return e => {
+            let splitterId = parseInt(e.currentTarget.value)
+            if (list.includes(splitterId)) {
+                let idx = list.indexOf(splitterId)
+                list.splice(idx, 1)
+            } else {
+                list.push(splitterId)
+            }
+            this.setState({ splitters: list})
+        }
+    }
+
+    updatePayer() {
+        return e => this.setState({payer_id: parseInt(e.currentTarget.value)})
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createExpense(this.state);
+        const expensePayload = { payer_id: this.state.payer_id, description: this.state.description, amount: this.state.amount, date: this.state.date, split_option: this.state.split_option};
+        // this.props.createExpense(expensePayload).then(expense => this.props.createExpenseSplit({ expense_id: expense.id, user_id: this.state.payer_id }))
+        this.props.createExpense(expensePayload).then(expense => {
+            for (const splitterId of this.state.splitters) {
+                if (splitterId !== this.state.payer_id) {
+                    this.props.createExpenseSplit({ expense_id: expense.id, user_id: splitterId })
+                }
+                
+            }
+            this.props.createExpenseSplit({expense_id: expense.id, user_id: this.state.payer_id})
+        }).then(() => {
+            if (!this.props.errors.length) {
+                this.props.closeModal()
+            }
+        })
+
     }
 
     renderErrors() {
@@ -64,6 +98,9 @@ class AddExpenseForm extends React.Component {
 
     render() {
         const { description, amount, date} = this.state;
+        if (Object.keys(this.props.users).length < 2) {
+            return null
+        }
         return (
             <div className="add-exp-form-container">
                 {this.renderErrors()}
@@ -72,10 +109,16 @@ class AddExpenseForm extends React.Component {
                         <h1> Add an expense</h1>
                     </div>
                    <div className="with-you">
-                        <label> With <strong style={{ 'fontWeight': 'bold' }}>you</strong> and: &nbsp;	&nbsp;
-                            <select className="name-field" name="friend" id="friend">
-                                {this.props.friendIds.map(id => <option value={id} key={id}>{this.props.users[id].name}</option>)}
-                            </select>
+                        <label id="name-label"> With <strong style={{ 'fontWeight': 'bold' }}>you</strong> and: &nbsp;	&nbsp;
+                            
+                            <div className="name-field" style={{'color':'#999'}}><input type="checkbox" disabled style={{ 'display': 'none' }}/>Choose friends below: </div>
+
+                            {this.props.friendIds.map(id => 
+                            // *************************************//
+                            <div className="name-field" key={id}>
+                                <input type="checkbox" onChange={this.updateList()} value={id} />{this.props.users[id].name} <br/>    
+                            </div>)}
+                            {/* *********************************** */}
                         </label>
                    </div>
                     
@@ -90,7 +133,12 @@ class AddExpenseForm extends React.Component {
                     </div>
 
                     <div className="exp-pd-by">
-                        <h3>Paid by <strong className="exp-str">you</strong> and split <strong className="exp-str">equally</strong>.</h3>
+                        <h3>Paid by 
+                        <select onChange={this.updatePayer()} className="exp-str">
+                            {this.state.splitters.map((splitterId => 
+                                <option value={splitterId}>{splitterId === this.props.currentUser.id ? 'you' : this.props.users[splitterId].name}</option>
+                                ))}
+                        </select> and split <strong className="exp-str">equally</strong>.</h3>
                     </div>
 
                     <div className="exp-date">

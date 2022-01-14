@@ -17,7 +17,9 @@ User.create(name: 'John Cigale', email: 'john@email.com', password: 'password');
 User.create(name: 'Kin Ka Tse', email: 'kin@email.com', password: 'password');
 User.create(name: 'Sam Lilly', email: 'saml@email.com', password: 'password');
 User.create(name: 'Sammy Huang', email: 'sammy@email.com', password: 'password');
+User.create(name: 'Julia Kim', email: 'julia@email.com', password: 'password');
 User.create(name: 'Tahj Harris', email: 'tahj@email.com', password: 'password');
+
 User.create(name: 'Alex Wong', email: 'alexw@email.com', password: 'password');
 User.create(name: 'Alex Dziuba', email: 'alexd@email.com', password: 'password');
 User.create(name: 'Andrew Vitovitch', email: 'andrew@email.com', password: 'password');
@@ -55,14 +57,29 @@ Friendship.create(user_id: 1, friend_id: 4)
 Friendship.create(user_id: 1, friend_id: 5)
 Friendship.create(user_id: 1, friend_id: 6)
 Friendship.create(user_id: 1, friend_id: 7)
+Friendship.create(user_id: 1, friend_id: 8)
+Friendship.create(user_id: 1, friend_id: 10)
+Friendship.create(user_id: 1, friend_id: 12)
+Friendship.create(user_id: 1, friend_id: 14)
+Friendship.create(user_id: 1, friend_id: 16)
+Friendship.create(user_id: 1, friend_id: 18)
+Friendship.create(user_id: 1, friend_id: 20)
+Friendship.create(user_id: 1, friend_id: 22)
+
 
 
 Expense.create(payer_id: 1, description: "Piggy Back Ride", amount: 12.00, date: "2022/01/02", split_option: "equal")
 Expense.create(payer_id: 2, description: "Movies", amount: 40.00, date: "2022/01/03", split_option: "equal")
-Expense.create(payer_id: 1, description: "Groceries", amount: 30.00, date: "2022/01/04", split_option: "equal")
+Expense.create(payer_id: 3, description: "Groceries", amount: 30.00, date: "2022/01/04", split_option: "equal")
 Expense.create(payer_id: 4, description: "Uber", amount: 45.00, date: "2022/01/05", split_option: "equal")
 Expense.create(payer_id: 7, description: "Dinner", amount: 40.00, date: "2022/01/06", split_option: "equal")
 Expense.create(payer_id: 6, description: "Birthday", amount: 50.00, date: "2022/01/06", split_option: "equal")
+Expense.create(payer_id: 7, description: "Helicopter Tour", amount: 250.00, date: "2022/01/06", split_option: "equal")
+Expense.create(payer_id: 8, description: "Six Flags", amount: 150, date: "2022/01/12", split_option: "equal")
+Expense.create(payer_id: 7, description: "Fishing Trip", amount: 200, date: "2022/01/12", split_option: "equal")
+Expense.create(payer_id: 1, description: "Breakfast", amount: 100, date: "2022/01/12", split_option: "equal")
+
+
 
 ExpenseSplit.create(expense_id: 1, user_id: 1)
 ExpenseSplit.create(expense_id: 1, user_id: 2)
@@ -85,3 +102,31 @@ ExpenseSplit.create(expense_id: 5, user_id: 5)
 
 ExpenseSplit.create(expense_id: 6, user_id: 1)
 ExpenseSplit.create(expense_id: 6, user_id: 6)
+
+ExpenseSplit.create(expense_id: 7, user_id: 1)
+ExpenseSplit.create(expense_id: 7, user_id: 2)
+ExpenseSplit.create(expense_id: 7, user_id: 3)
+ExpenseSplit.create(expense_id: 7, user_id: 4)
+ExpenseSplit.create(expense_id: 7, user_id: 5)
+ExpenseSplit.create(expense_id: 7, user_id: 6)
+ExpenseSplit.create(expense_id: 7, user_id: 7)
+
+ExpenseSplit.create(expense_id: 8, user_id: 1)
+ExpenseSplit.create(expense_id: 8, user_id: 4)
+ExpenseSplit.create(expense_id: 8, user_id: 8)
+
+ExpenseSplit.create(expense_id: 9, user_id: 1)
+ExpenseSplit.create(expense_id: 9, user_id: 7)
+ExpenseSplit.create(expense_id: 9, user_id: 6)
+ExpenseSplit.create(expense_id: 9, user_id: 5)
+
+ExpenseSplit.create(expense_id: 10, user_id: 1)
+ExpenseSplit.create(expense_id: 10, user_id: 2)
+ExpenseSplit.create(expense_id: 10, user_id: 3)
+ExpenseSplit.create(expense_id: 10, user_id: 4)
+ExpenseSplit.create(expense_id: 10, user_id: 5)
+ExpenseSplit.create(expense_id: 10, user_id: 6)
+ExpenseSplit.create(expense_id: 10, user_id: 7)
+ExpenseSplit.create(expense_id: 10, user_id: 8)
+ExpenseSplit.create(expense_id: 10, user_id: 9)
+ExpenseSplit.create(expense_id: 10, user_id: 10)

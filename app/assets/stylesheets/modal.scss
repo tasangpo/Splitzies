@@ -115,13 +115,22 @@
 
 .with-you {
   font-size: 14px;
-  padding: 10px 0px 10px 10px;
+  padding: 5px 0px 10px 10px;
   border-bottom: 1px solid rgb(241, 238, 238);
+  height: 50px;
+  overflow-y: scroll;
+}
+
+#name-label{
 }
 
 .name-field {
-  border-radius: 10px;
+  position: relative;
+  width: 60%;
+  margin-left: 30%;
+  top: -27.5%;
 }
+
 
 .exp-des-am {
   display: flex;
