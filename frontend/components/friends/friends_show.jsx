@@ -40,7 +40,6 @@ class FriendsShow extends React.Component {
         }
 
         const friend = this.props.users[this.props.match.params.friendId]
-        // const relatedExpenses = this.props.expenses.filter(expense => expense.splitterIds.includes(friend.id) && expense.splitterIds.includes(this.props.currentUser.id))
         const relatedExpenses = this.props.expenses.filter(expense => (expense.payer_id === friend.id && expense.splitterIds.includes(this.props.currentUser.id)) || (expense.payer_id === this.props.currentUser.id && expense.splitterIds.includes(friend.id)))
 
         
