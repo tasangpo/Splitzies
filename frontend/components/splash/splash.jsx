@@ -49,6 +49,10 @@ class Splash extends React.Component {
                 </div>
             <footer>
                 DISCLAIMER: ALL IMAGES ARE TAKEN FROM THE SPLITWISE WEBSITE FOR CLONING PURPOSES
+                    <ul id="social">
+                        <li> <a href="https://github.com/tasangpo" target="_blank"> <i class="fa fa-github" style={{'fontSize': '72px', 'color':'black'}}></i> </a> </li>
+                        <li> <a href="https://www.linkedin.com/in/tashi-s-a868a2185/" target="_blank"> <i id="linkedin" class="fa fa-linkedin-square" style={{'fontSize':'72px', 'color': '#006192'}}></i> </a></li>
+                    </ul>
             </footer>
         </div>
         );
