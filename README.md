@@ -41,7 +41,9 @@
 ## Relevant Code <a name="code"></a>
 
 <p> In order to calculate overall balance with a specific friend, I grabbed the ID from the url, filtered only the expenses where either the current user was the payer and the friend was involved or where the friend paid and the current user was invovled. Then with some quick javascript math, if current user was payer, I added to the total balance by dividing the total amount by the number of splitters invovled with that expense, else, subtract from the total balance.  </p>
+
 ```
+
         const friend = this.props.users[this.props.match.params.friendId]
         const relatedExpenses = this.props.expenses.filter(expense => (expense.payer_id === friend.id && expense.splitterIds.includes(this.props.currentUser.id)) || (expense.payer_id === this.props.currentUser.id && expense.splitterIds.includes(friend.id)))
 
@@ -57,4 +59,10 @@
         };
 
         relativeBlance = relativeBlance.toFixed(2);
+
+        const balanceDiv = relativeBlance >= 0 ? 
+            <div className="bal-rel-div"><span id="you-owe-me-money">{friend.name} owes you ${relativeBlance}</span></div> : 
+            <div className="bal-rel-div"><span id="i-owe-you-money">You owe {friend.name} ${(relativeBlance * -1).toFixed(2)}</span></div>;
+        
+       
 ```
