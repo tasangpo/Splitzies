@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../../actions/user_actions";
 import { fetchExpenses } from "../../actions/expense_actions";
 import { removeFriendAction } from "../../actions/friendship_actions";
@@ -65,7 +66,7 @@ class FriendsShow extends React.Component {
                     <h1> &#129503; {friend ? friend.name : ''}</h1>
                     <div className="frd-show-btns">   
                         <button id="frd-show-btn1" onClick={() => this.props.openModal('addExpense')} >Add an expense</button>
-                        <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button>
+                        <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}><NavLink to="/dashboard" style={{'textDecoration':'none', 'color':'white'}}>Remove friend</NavLink></button>
                     </div>
                 </section>
                 <section>
