@@ -17,7 +17,7 @@
 
 .modal-frd {
   width: 500px;
-  height: 150px;
+  height: 200px;
   color: #333333;
   padding: 25px 25px;
   background-color: white;
@@ -39,6 +39,15 @@
   font-size: 13px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.frd-select {
+  border: 1px dotted lightgoldenrodyellow;
+  border-radius: 10px;
+  width: 50%;
+  padding: 5px;
+  color: grey;
+  background-color: #F6F6F6;
 }
 
 .frd-msg-btn-container {
@@ -84,6 +93,9 @@
   font-weight: bold;
   margin-top: -15px;
 }
+
+/* **********
+*/
 
 
 .add-exp-form-container {

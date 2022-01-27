@@ -113,11 +113,10 @@ class AddExpenseForm extends React.Component {
                             <div className="name-field" style={{'color':'#999'}}><input type="checkbox" disabled style={{ 'display': 'none' }}/>Choose friends below: </div>
 
                             {this.props.friendIds.map(id => 
-                            // *************************************//
-                            <div className="name-field" key={id}>
-                                <input type="checkbox" onChange={this.updateList()} value={id} />{this.props.users[id].name} <br/>    
-                            </div>)}
-                            {/* *********************************** */}
+                                <div className="name-field" key={id}>
+                                    <input type="checkbox" onChange={this.updateList()} value={id} />{this.props.users[id].name} <br/>    
+                                </div>)
+                            }
                         </label>
                    </div>
                     
@@ -135,7 +134,7 @@ class AddExpenseForm extends React.Component {
                         <h3>Paid by 
                         <select onChange={this.updatePayer()} className="exp-str">
                             {this.state.splitters.map((splitterId => 
-                                <option value={splitterId}>{splitterId === this.props.currentUser.id ? 'you' : this.props.users[splitterId].name}</option>
+                                <option value={splitterId} key={splitterId}>{splitterId === this.props.currentUser.id ? 'you' : this.props.users[splitterId].name}</option>
                                 ))}
                         </select> and split <strong className="exp-str">equally</strong>.</h3>
                     </div>
