@@ -136,7 +136,8 @@ class AddExpenseForm extends React.Component {
                             {this.state.splitters.map((splitterId => 
                                 <option value={splitterId} key={splitterId}>{splitterId === this.props.currentUser.id ? 'you' : this.props.users[splitterId].name}</option>
                                 ))}
-                        </select> and split <strong className="exp-str">equally</strong>.</h3>
+                        </select> and split <strong className="exp-str" style={{color: 'black'}}>equally</strong>.</h3>
+                        {this.state.amount ? <span>(${parseFloat(this.state.amount / this.state.splitters.length).toFixed(2)}/person)</span> : null}
                     </div>
 
                     <div className="exp-date">

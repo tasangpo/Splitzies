@@ -6,6 +6,7 @@ import ProfileMenuContainer from "./profile_menu"
 import LeftNav from "./left_nav_container";
 import FriendShow from "../friends/friends_show"
 import AllExpenses from "../expenses/all_expenses";
+import EditExpense from "../expenses/edit_expense_form"
 
 
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create]
     resource :session, only: [:create, :destroy]
     resources :friendships, only: [:create, :destroy]
-    resources :expenses, only: [:index, :show, :create, :destroy]
+    resources :expenses, only: [:index, :show, :create, :update, :destroy]
     resources :expense_splits, only: [:create, :destroy]
   end
 

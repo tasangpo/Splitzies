@@ -18,6 +18,16 @@ class Api::ExpensesController < ApplicationController
         end
     end
 
+    def update
+        @expense = Expense.find(params[:id])
+        if @expense
+            @expense.update(expense_params)
+            render :show
+        else
+            render json: @expense.errors.full_messages, status: 422
+        end
+    end
+
     def destroy
         @expense = Expense.find(params[:id])
         @expense.destroy

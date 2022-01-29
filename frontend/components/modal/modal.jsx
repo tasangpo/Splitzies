@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { closeModal } from "../../actions/modal_actions";
 import FriendsForm from "../friends/friend_form"
 import AddExpenseForm from "../expenses/add_expense_form"
+import EditExpenseForn from "../expenses/edit_expense_form";
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -16,7 +17,9 @@ function Modal({modal, closeModal}) {
         case 'addExpense':
             component = < AddExpenseForm/>
             break;
-
+        case 'editExpense' :
+            component = <EditExpenseForn />
+            break;
         default:
             return null
     }

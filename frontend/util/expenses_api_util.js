@@ -18,14 +18,22 @@ export const createExpense = expense => {
         url: "api/expenses",
         data: { expense }
     })
-}
+};
+
+export const updateExpense = expense => {
+    return $.ajax({
+        method: "PATCH",
+        url: `api/expenses/${expense.id}`,
+        data: { expense }
+    })
+};
 
 export const deleteExpense = expenseId => {
     return $.ajax({
         method: "DELETE",
         url: `api/expenses/${expenseId}`
     })
-}
+};
 
 
 export const createExpenseSplit = payload => {
@@ -34,7 +42,8 @@ export const createExpenseSplit = payload => {
         url: `api/expense_splits`, 
         data: { payload }
     })
-}
+};
+
 
 
 

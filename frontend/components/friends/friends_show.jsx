@@ -65,7 +65,7 @@ class FriendsShow extends React.Component {
                     <h1> &#129503; {friend ? friend.name : ''}</h1>
                     <div className="frd-show-btns">   
                         <button id="frd-show-btn1" onClick={() => this.props.openModal('addExpense')} >Add an expense</button>
-                        <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}><NavLink to="/dashboard" style={{'textDecoration':'none', 'color':'white'}}>Remove friend</NavLink></button>
+                        <NavLink to="/dashboard" style={{ 'textDecoration': 'none', 'color': 'white' }}><button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button></NavLink>
                     </div>
                 </section>
                 <section>

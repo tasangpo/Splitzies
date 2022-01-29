@@ -59,6 +59,16 @@ export const createExpense = expense => dispatch => {
         )
 }
 
+export const updateExpense = expense => dispatch => {
+    return APIUtil.updateExpense(expense).then(expense => {
+        dispatch(receiveExpense(expense))
+        return expense
+    }),
+    errors => {
+        dispatch(receieveExpenseErrors(errors.responseJSON))
+    }
+}
+
 export const deleteExpense = expenseId => dispatch => {
     return APIUtil.deleteExpense(expenseId).then(() => dispatch(removeExpense(expenseId)))
 }
@@ -67,5 +77,9 @@ export const createExpenseSplit = payload => dispatch => {
     return APIUtil.createExpenseSplit(payload).then(expense => {
         dispatch(receiveExpense(expense))
         return expense
+    },
+    errors => {
+        dispatch(receieveExpenseErrors(errors.responseJSON))
     })
 }
+
