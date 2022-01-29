@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchUsers } from "../../actions/user_actions"
-import { updateExpense, removeExpenseErrors, createExpenseSplit, removeExpenseSplit } from "../../actions/expense_actions";
+import { updateExpense, removeExpenseErrors, createExpenseSplit } from "../../actions/expense_actions";
 import { closeModal } from "../../actions/modal_actions";
 
 
