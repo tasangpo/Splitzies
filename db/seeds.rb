@@ -58,13 +58,12 @@ Friendship.create(user_id: 1, friend_id: 5)
 Friendship.create(user_id: 1, friend_id: 6)
 Friendship.create(user_id: 1, friend_id: 7)
 Friendship.create(user_id: 1, friend_id: 8)
-Friendship.create(user_id: 1, friend_id: 10)
-Friendship.create(user_id: 1, friend_id: 12)
-Friendship.create(user_id: 1, friend_id: 14)
-Friendship.create(user_id: 1, friend_id: 16)
-Friendship.create(user_id: 1, friend_id: 18)
-Friendship.create(user_id: 1, friend_id: 20)
-Friendship.create(user_id: 1, friend_id: 22)
+Friendship.create(user_id: 1, friend_id: 9)
+Friendship.create(user_id: 1, friend_id: 13)
+Friendship.create(user_id: 1, friend_id: 19)
+Friendship.create(user_id: 1, friend_id: 26)
+Friendship.create(user_id: 1, friend_id: 27)
+
 
 
 
@@ -78,6 +77,7 @@ Expense.create(payer_id: 7, description: "Helicopter Tour", amount: 250.00, date
 Expense.create(payer_id: 8, description: "Six Flags", amount: 150, date: "2022/01/12", split_option: "equal")
 Expense.create(payer_id: 7, description: "Fishing Trip", amount: 200, date: "2022/01/12", split_option: "equal")
 Expense.create(payer_id: 1, description: "Breakfast", amount: 100, date: "2022/01/12", split_option: "equal")
+Expense.create(payer_id: 1, description: "Group Test", amount: 100, date: "2022/01/12", split_option: "equal", group_id: 1)
 
 
 
@@ -128,5 +128,30 @@ ExpenseSplit.create(expense_id: 10, user_id: 5)
 ExpenseSplit.create(expense_id: 10, user_id: 6)
 ExpenseSplit.create(expense_id: 10, user_id: 7)
 ExpenseSplit.create(expense_id: 10, user_id: 8)
-ExpenseSplit.create(expense_id: 10, user_id: 9)
-ExpenseSplit.create(expense_id: 10, user_id: 10)
+
+ExpenseSplit.create(expense_id: 11, user_id: 1)
+ExpenseSplit.create(expense_id: 11, user_id: 2)
+ExpenseSplit.create(expense_id: 11, user_id: 3)
+
+
+Group.create(name: 'Roadtrip', group_type: 'Trip', creator_id: 1)
+Group.create(name: "aA TA", group_type: 'Home', creator_id: 2)
+Group.create(name: 'Mern Group', group_type: 'Other', creator_id: 1)
+
+GroupMember.create(group_id: 1, user_id: 1)
+GroupMember.create(group_id: 1, user_id: 2)
+GroupMember.create(group_id: 1, user_id: 3)
+
+GroupMember.create(group_id: 2, user_id: 1)
+GroupMember.create(group_id: 2, user_id: 2)
+GroupMember.create(group_id: 2, user_id: 3)
+GroupMember.create(group_id: 2, user_id: 4)
+GroupMember.create(group_id: 2, user_id: 5)
+GroupMember.create(group_id: 2, user_id: 6)
+GroupMember.create(group_id: 2, user_id: 7)
+GroupMember.create(group_id: 2, user_id: 8)
+
+GroupMember.create(group_id: 3, user_id: 1)
+GroupMember.create(group_id: 3, user_id: 4)
+GroupMember.create(group_id: 3, user_id: 7)
+GroupMember.create(group_id: 3, user_id: 8)

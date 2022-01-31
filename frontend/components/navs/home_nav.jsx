@@ -6,11 +6,7 @@ import ProfileMenuContainer from "./profile_menu"
 import LeftNav from "./left_nav_container";
 import FriendShow from "../friends/friends_show"
 import AllExpenses from "../expenses/all_expenses";
-import EditExpense from "../expenses/edit_expense_form"
-
-
-
-
+import GroupShow from "../groups/group_show";
 
 class HomeNav extends React.Component {
     render() {
@@ -34,6 +30,7 @@ class HomeNav extends React.Component {
                             < ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                             < ProtectedRoute exact path="/all" component={AllExpenses} />
                             < ProtectedRoute exact path="/friends/:friendId" component={FriendShow} />
+                            < ProtectedRoute exact path="/groups/:groupId" component={GroupShow} />
                         </Switch>
                     </section>
                     <section className="right-console">

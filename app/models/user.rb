@@ -34,7 +34,18 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :ExpenseSplit,
     dependent: :destroy
+
+  has_many :groups,
+    primary_key: :id,
+    foreign_key: :creator_id,
+    class_name: :Group,
+    dependent: :destroy
   
+  has_many :group_memberships,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :GroupMember,
+    dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
