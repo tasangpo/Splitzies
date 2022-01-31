@@ -4,6 +4,7 @@ import { closeModal } from "../../actions/modal_actions";
 import FriendsForm from "../friends/friend_form"
 import AddExpenseForm from "../expenses/add_expense_form"
 import EditExpenseForn from "../expenses/edit_expense_form";
+import AddGroupExpenseForm from "../expenses/add_group_expense_form";
 
 function Modal({modal, closeModal}) {
     if (!modal) {
@@ -19,6 +20,9 @@ function Modal({modal, closeModal}) {
             break;
         case 'editExpense' :
             component = <EditExpenseForn />
+            break;
+        case 'addGroupExpense' :
+            component = <AddGroupExpenseForm />
             break;
         default:
             return null

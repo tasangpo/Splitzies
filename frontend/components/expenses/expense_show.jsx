@@ -64,7 +64,9 @@ class ExpenseShow extends React.Component{
                     <div className="exp-left">
                         <div id="exp-date"> <strong>Date: </strong>{`${this.props.expense.date}`}</div>
                         &nbsp;	&nbsp;
-                            <span style={{ 'fontSize': '30px' }}>&#128203;</span>
+                            {/* <span style={{ 'fontSize': '30px' }}>&#128203;</span> */}
+                        {this.props.expense.group_id ? <span style={{ 'fontSize': '30px' }}>&#128101;</span> : <span style={{ 'fontSize': '30px' }}>&#128203;</span>}
+
                         &nbsp;	&nbsp;
                         <div style={{ 'textAlign': 'start' }}>{`${this.props.expense.description}`}</div>
                         &nbsp;	&nbsp;

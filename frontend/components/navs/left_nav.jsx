@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 import EachFriendItem from "../friends/each_friend_item";
+import EachGroupItem from "../groups/each_group_item"
 
 class LeftNav extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class LeftNav extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
+        this.props.fetchGroups();
     }
 
 
@@ -24,10 +26,10 @@ class LeftNav extends React.Component {
                 <section className="left-nav-comp">
                     <div className="f-header">
                         <h1>GROUPS</h1>
-                        <button onClick={() => alert("FUNCTIONALITY COMING SOON, 2022")} style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
+                        <NavLink to="/groups/new"><button style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button></NavLink>
                     </div>
                     <div>
-
+                        {this.props.groupIds.map(id => <EachGroupItem groupId={id} key={id}/>)}
                     </div>
                 </section>
                  <br />

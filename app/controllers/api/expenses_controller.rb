@@ -37,7 +37,7 @@ class Api::ExpensesController < ApplicationController
     private 
     
     def expense_params
-        params.require(:expense).permit(:payer_id, :description, :amount, :date, :split_option)
+        params.require(:expense).permit(:payer_id, :description, :amount, :date, :split_option, :group_id)
     end
 
 end
