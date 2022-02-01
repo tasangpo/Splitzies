@@ -23,7 +23,7 @@ class GroupMember extends React.Component {
         for (let expense of groupExpenses) {
             if (expense.payer_id === member.id) {
                 memberBalance += expense.amount * (expense.splitterIds.length - 1)/(expense.splitterIds.length)
-            } else if (expense.splitterIds(member.id)) {
+            } else if (expense.splitterIds.includes(member.id)) {
                 memberBalance -= expense.amount / expense.splitterIds.length;
             }
         }
