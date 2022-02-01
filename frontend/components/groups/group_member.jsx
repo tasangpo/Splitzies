@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchExpenses } from '../../actions/expense_actions';
 
 const mSTP = state => ({
     expenses: state.entities.expenses
 });
 
 const mDTP = dispatch => ({
-    // fetchExpenses: () => dispatch(fetchExpenses())
 })
-
 
 class GroupMember extends React.Component {
     constructor(props){
         super(props)
     }
+
+
 
     render() {
         const { member, group, expenses } = this.props;
@@ -24,7 +23,7 @@ class GroupMember extends React.Component {
         for (let expense of groupExpenses) {
             if (expense.payer_id === member.id) {
                 memberBalance += expense.amount * (expense.splitterIds.length - 1)/(expense.splitterIds.length)
-            } else {
+            } else if (expense.splitterIds(member.id)) {
                 memberBalance -= expense.amount / expense.splitterIds.length;
             }
         }
