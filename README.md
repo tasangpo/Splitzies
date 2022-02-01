@@ -6,7 +6,9 @@
 1. [About Splitzies](#about)
 2. [Technology Utilized](#technology)
 3. [Balance Update](#balance)
+3. [Friends and Group](#friends&groups)
 4. [Relevant Code](#code)
+        
 
 
 
@@ -37,7 +39,12 @@
 <p align ="center"><img src="docs/production2.png" width="500"></p>
 <p>When you click on an expense, information about all the users involved and how much they owed are displayed.</p>
 
-
+## Friends & Groups <a name="friends&groups"></a>
+<p>Users are able to add friends who are signed up on the site. The friends will show up on the dashboard if a user owes that friend or vice versa. Clicking on the friends name on the list will take them to the friends page where all expenses where have unsettled balances will show up.</p>
+ <p>Users can add their friends to a group and can add an expense specifically for that group. Groups page will show all the expenses for that group and on the right cosole, all the members and their balance relative to that group is displayed.
+</p>
+ <p align ="center"><img src="docs/production3.png" width="500"></p>
+        
 ## Relevant Code <a name="code"></a>
 
 <p> In order to calculate overall balance with a specific friend, I grabbed the ID from the url, filtered only the expenses where either the current user was the payer and the friend was involved or where the friend paid and the current user was invovled. Then with some quick javascript math, if current user was payer, I added to the total balance by dividing the total amount by the number of splitters invovled with that expense, else, subtract from the total balance.  </p>
