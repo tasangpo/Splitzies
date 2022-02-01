@@ -32,7 +32,7 @@ class GroupMember extends React.Component {
         return (
             <div className='member-balance'>
                 <h1>{firstName}</h1>
-                {memberBalance >= 0 ? <span id="green-span">gets back ${memberBalance}</span> : <span id="red-span">owes ${Math.abs(memberBalance)} </span>}
+                {memberBalance >= 0 ? <span id="green-span">gets back ${memberBalance}</span> : <span id="red-span">owes ${parseFloat(memberBalance * -1).toFixed(2)} </span>}
             </div>
         )
     }
