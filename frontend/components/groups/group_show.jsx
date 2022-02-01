@@ -48,14 +48,14 @@ class GroupShow extends React.Component {
                         <button id="grp-show-btn2" onClick={() => this.props.deleteGroup(group.id).then(this.props.history.push("/"))}>Delete Group</button>
                     </div>
                 </section>
-                <section className="grp-show-members">
+                {/* <section className="grp-show-members">
                     {group.memberIds.map(id => {
                         const member = users[id]
                         return (
                             <NavLink key={id} to={`/friends/${id}`}><div>{member.name}</div></NavLink>
                         )
                     })}
-                </section>
+                </section> */}
                 <section>
                     {groupExpenses.map(expense => {
                         return <ExpenseShow key={expense.id} expense={expense}/> 

@@ -57,3 +57,28 @@
     background-color: #b9b9b99a;
     border-radius: 5px;
 }
+
+.member-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Lato';
+}
+
+.member-balance h1 {
+    font-size: 14px;
+}
+
+.member-balance span {
+    font-size: 12px;
+}
+
+#green-span {
+    color: #5BC5A7;
+}
+
+#red-span {
+    color: #FF652F;
+}

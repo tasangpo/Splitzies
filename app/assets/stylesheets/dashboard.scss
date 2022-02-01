@@ -190,3 +190,17 @@
     width: 150px;
     margin: 10px 0px 5px;
 }
+
+.right-component {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.right-h1-group {
+    color: #999999;
+    font-size: 13px;
+    font-weight: bolder;
+    text-align: left;
+    margin: 20px 0px 0px; 
+}

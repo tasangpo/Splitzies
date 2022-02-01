@@ -4,7 +4,6 @@ const expenseErrorsReducer = (state=[], action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_EXPENSE_ERRORS:
-            debugger
             return action.errors;
         case RECEIVE_EXPENSE:
             return [];

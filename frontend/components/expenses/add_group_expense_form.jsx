@@ -51,9 +51,7 @@ class AddGroupExpenseForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const expensePayload = {payer_id: this.state.payer_id, description: this.state.description, amount: this.state.amount, date: this.state.date, split_option: this.state.split_option, group_id: this.state.group_id};
-        debugger
         this.props.createExpense(expensePayload).then(expense => {
-            debugger
             for (const splitterId of this.state.splitters) {
                 if (splitterId !== this.state.payer_id) {
                     this.props.createExpenseSplit({ expense_id: expense.id, user_id: splitterId })

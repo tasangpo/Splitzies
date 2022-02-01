@@ -7,6 +7,8 @@ import LeftNav from "./left_nav_container";
 import FriendShow from "../friends/friends_show"
 import AllExpenses from "../expenses/all_expenses";
 import GroupShow from "../groups/group_show";
+import RightComponent from "./right_component";
+import RightGroupComponent from "../groups/right-group-component";
 
 class HomeNav extends React.Component {
     render() {
@@ -34,10 +36,13 @@ class HomeNav extends React.Component {
                         </Switch>
                     </section>
                     <section className="right-console">
-                        <h2>SPLITWISE ON THE GO</h2>
-                        <p>Get the free Splitwise app and add IOUs from anywhere: </p>
-                        <img id="app-img" src={window.appStore} alt="app-store" />
-                        <img src={window.googlePlay} alt="google-play" />
+                        <Switch>
+                            < ProtectedRoute exact path="/dashboard" component={RightComponent} />
+                            < ProtectedRoute exact path="/all" component={RightComponent} />
+                            < ProtectedRoute exact path="/friends/:friendId" component={RightComponent} />
+                            < ProtectedRoute exact path="/groups/:groupId" component={RightGroupComponent} />
+                        </Switch>
+
                     </section>
                 </div>
             </div>         

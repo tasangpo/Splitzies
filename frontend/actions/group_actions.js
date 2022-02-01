@@ -46,7 +46,9 @@ export const fetchGroups = () => dispatch => {
 };
 
 export const fetchGroup = groupId => dispatch => {
-    return APIUtil.fetchGroup(groupId).then(group => dispatch(receiveGroup(group)))
+    return APIUtil.fetchGroup(groupId).then(group => {
+        dispatch(receiveGroup(group))
+    })
 };
 
 export const createGroup = group => dispatch => {

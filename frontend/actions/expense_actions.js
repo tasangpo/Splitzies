@@ -50,13 +50,11 @@ export const fetchExpense = expenseId => dispatch => {
 };
 
 export const createExpense = expense => dispatch => {
-    debugger
     return APIUtil.createExpense(expense).then(expense => {
         dispatch(receiveExpense(expense))
         return expense
     }, 
         errors => {
-            debugger
             dispatch(receieveExpenseErrors(errors.responseJSON))}
         )
 }
