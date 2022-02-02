@@ -6,10 +6,11 @@ import TopNav from "../navs/top_nav";
 class Splash extends React.Component {
     render() {
         return (
-            <div>
+            <div class="splash-all">
                 <TopNav />
 
                 <div className='splash-container'>
+
                     <div className='splash-main'>
                         <div className='main-text'>
                             <div className="main-pad">
@@ -47,12 +48,27 @@ class Splash extends React.Component {
                     </div>
 
                 </div>
-            <footer>
-                DISCLAIMER: ALL IMAGES ARE TAKEN FROM THE SPLITWISE WEBSITE FOR CLONING PURPOSES
-                    <ul id="social">
-                        <li> <a href="https://github.com/tasangpo" target="_blank"> <i class="fa fa-github" style={{'fontSize': '72px', 'color':'black'}}></i> </a> </li>
-                        <li> <a href="https://www.linkedin.com/in/tashi-s-a868a2185/" target="_blank"> <i id="linkedin" class="fa fa-linkedin-square" style={{'fontSize':'72px', 'color': '#006192'}}></i> </a></li>
-                    </ul>
+
+            <footer id="splash-footer">
+                <div className="footer-relative">
+                    <div className="footer-left">
+                        <h1 className="footer-titles">Splitzies</h1>
+                        <Link className="footer-links" to="/login">Login</Link>
+                        <Link className="footer-links"  to="/signup">Signup</Link>
+                        <a className="footer-links"  target="_blank" href="https://github.com/tasangpo/Splitzies">GitHub Repo</a>
+                    </div>
+                    <div className="footer-left">
+                        <h1 className="footer-titles" style={{'color': '#F67240'}}>About the creator</h1>
+                        <a className="footer-links"  target="_blank" href="https://www.linkedin.com/in/tashi-s-a868a2185/">LinkedIn</a>
+                        <a className="footer-links"  target="_blank" href="https://github.com/tasangpo">Github</a>
+                        <a className="footer-links"  target="_blank" href="https://tasangpo.github.io/">Portfolio</a>
+                        <a className="footer-links"  target="_blank" href="https://angel.co/u/tashi-sangpo">AngelList</a>
+                    </div>
+                </div>
+                
+                <div className="footer-disclaimer">
+                        <strong style={{'fontWeight':'bolder'}}>Disclaimer: </strong>Images on Splash Page are from Splitwise for cloning purposes!
+                </div>
             </footer>
         </div>
         );

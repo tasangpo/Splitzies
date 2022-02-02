@@ -187,14 +187,14 @@
 }
 
 .right-console img {
-    width: 150px;
-    margin: 10px 0px 5px;
+    width: 125px;
 }
 
 .right-component {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    height: 200px;
 }
 
 .right-h1-group {
@@ -204,3 +204,13 @@
     text-align: left;
     margin: 20px 0px 0px; 
 }
+
+.right-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100px;
+    margin-top: 20px;
+}
+

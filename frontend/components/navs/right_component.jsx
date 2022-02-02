@@ -2,10 +2,12 @@ import React from "react";
 
 const RightComponent = () => (
     <div className="right-component">
-        <h2>SPLITWISE ON THE GO</h2>
-        <p>Get the free Splitwise app and add IOUs from anywhere: </p>
-        <img id="app-img" src={window.appStore} alt="app-store" />
-        <img src={window.googlePlay} alt="google-play" />
+        <h2>MY LINKS</h2>
+        <p>Check out my LinkedIn and Github below: </p>
+        <div className="right-links">
+            <a target="_blank" href="https://www.linkedin.com/in/tashi-s-a868a2185/"><img src={window.linkedin} alt="linkedin" /></a>
+            <a target="_blank" href="https://github.com/tasangpo"><img src={window.github} alt="github" /></a>
+        </div>
     </div>
 )
 

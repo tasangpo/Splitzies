@@ -70,7 +70,7 @@ class FriendsShow extends React.Component {
                 </section>
                 <section>
                     {balanceDiv}
-                    {relatedExpenses.map(expense => <ExpenseFriendShow expense={expense} />)}
+                    {relatedExpenses.map(expense => <ExpenseFriendShow key={expense.id} expense={expense} />)}
                 </section>
             </div>
         )
