@@ -113,17 +113,18 @@
 
 #splash-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left: 10%;
     padding-top: 10px;
     padding-bottom: 10px;
     font-family: 'Lato';
-    background-color: antiquewhite;
+    background-image: image-url('background.png');
+
 }
 
 .footer-relative {
     display: flex;
-    width: 250px;
+    width: 300px;
     justify-content: space-between;
 }
 
@@ -134,7 +135,7 @@
 
 .footer-titles {
     padding-bottom: 4px;
-    font-size: 14px;
+    font-size: 18px;
     color: #1CC29F;
     font-family: 'Lato';
     font-weight: bolder;
@@ -142,7 +143,7 @@
 
 .footer-links {
     padding-bottom: 3px;
-    font-size: 14px;
+    font-size: 18px;
     color: #52595F;
 }
 .footer-links:hover {
