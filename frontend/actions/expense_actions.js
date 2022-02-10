@@ -42,7 +42,10 @@ export const removeExpenseErrors = () => {
 }
 
 export const fetchExpenses = () => dispatch => {
-    return APIUtil.fetchExpenses().then(expenses => dispatch(receiveExpenses(expenses)))
+    return APIUtil.fetchExpenses().then(expenses => {
+        dispatch(receiveExpenses(expenses))
+
+    })
 };
 
 export const fetchExpense = expenseId => dispatch => {
