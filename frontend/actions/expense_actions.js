@@ -83,3 +83,16 @@ export const createExpenseSplit = payload => dispatch => {
     })
 }
 
+export const createComment = comment => dispatch => {
+    return APIUtil.createComment(comment).then(expense => {
+        dispatch(receiveExpense(expense))
+    },
+    errors => {dispatch(removeExpenseErrors(errors.responseJSON))
+    })
+};
+
+export const deleteComment = id => dispatch => {
+    return APIUtil.deleteComment(id).then(expense => {
+        dispatch(receiveExpense(expense))
+    })
+};

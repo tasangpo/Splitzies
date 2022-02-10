@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :expense_splits, only: [:create, :destroy]
     resources :groups, only: [:index, :show, :create, :update, :destroy]
     resources :group_members, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   root "static_pages#root"

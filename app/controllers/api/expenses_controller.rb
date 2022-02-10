@@ -31,6 +31,7 @@ class Api::ExpensesController < ApplicationController
     def destroy
         @expense = Expense.find(params[:id])
         @expense.destroy
+        render json: ['Deleted']
     end
 
 

@@ -32,4 +32,9 @@ class Expense < ApplicationRecord
         class_name: :Group,
         optional: true
 
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :expense_id,
+        class_name: :Comment
+
 end
