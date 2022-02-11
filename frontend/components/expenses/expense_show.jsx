@@ -126,8 +126,7 @@ class ExpenseShow extends React.Component{
                                 }
                             })}
                         </div>
-                            <Comments expense={this.props.expense} users={this.props.users} currentUser={this.props.currentUser}/>
-
+                        <Comments expense={this.props.expense} users={this.props.users} currentUser={this.props.currentUser}/>
                     </div>
                 </div>   
             </div>            

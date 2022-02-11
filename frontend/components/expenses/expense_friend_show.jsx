@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { deleteExpense } from "../../actions/expense_actions";
 import { fetchUsers } from "../../actions/user_actions";
 import { openModal } from "../../actions/modal_actions";
+import Comments from "../comments/comments";
 
 const mSTP = state => {
     return ({
@@ -54,11 +55,14 @@ class ExpenseFriendShow extends React.Component {
         if (payer === this.props.currentUser) {
             name = 'You';
         }
-        split = split.toFixed(2)
+        split = split.toFixed(2);
+
+        const date = new Date(this.props.expense.date)
+        const month = date.toLocaleDateString('default', { month: 'long' })
         return (
 
-            <div onClick={() => setTimeout(() => this.reveal(id), 100)} className="exp-all-container">
-                <div className="exp-item" >
+            <div className="exp-all-container">
+                <div onClick={() => setTimeout(() => this.reveal(id), 100)} className="exp-item" >
                     <div className="exp-left">
                         <div id="exp-date"> <strong>Date: </strong>{`${this.props.expense.date}`}</div>
                         &nbsp;	&nbsp;
@@ -90,23 +94,34 @@ class ExpenseFriendShow extends React.Component {
             </div>
 
             <div id={id} className="hidden-expense-divider" style={{ 'height': '0', 'overflow': 'hidden', 'textAlign': 'start' }}>
-                <div>
-                    <h5 className="hidden-texts">
-                        <strong className="hidden-strong">{users[this.props.expense.payer_id].name}</strong> paid <strong className="hidden-strong">${totalDisplay}</strong> and owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong>
-                    </h5>
-                    {this.props.expense.splitterIds.map(id => {
-                        if (id === this.props.expense.payer_id) {
-                            return null
-                        } else {
-                            return <h5 key={id} className="hidden-texts"><strong className="hidden-strong">{users[id].name}</strong> owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong></h5>
-                        }
-                    })}
+                <div className="top-hidden">
+                    <div className="top-hidden-img">
+                        {this.props.expense.group_id ? <span style={{ 'fontSize': '30px' }}>&#128101;</span> : <span style={{ 'fontSize': '70px' }}>&#128203;</span>}
+                    </div>
+                    <div className="top-hidden-texts">
+                        <span style={{ 'fontSize': '13px' }}>{this.props.expense.description}</span>
+                        <span style={{ 'fontSize': '20px', 'fontWeight': 'bold' }}>${totalDisplay}</span>
+                        <span style={{ 'color': '#999', 'fontSize': '12px' }}>Paid by {name} on {month + ' ' + date.toDateString().split(' ')[2] + ', ' + date.toDateString().split(' ')[3]}</span>
+                        <button className="edit-btn" onClick={() => this.props.openModal('editExpense', this.props.expense.id)}>Edit expense</button>
+                    </div>
                 </div>
-                <div>
-                    <button className="edit-btn" onClick={() => this.props.openModal('editExpense', this.props.expense.id)}>Edit expense</button>
-                </div>                
+                    <div className="bottom-hidden">
+                        <div className="hidden-participants">
+                            <h5 className="hidden-texts">
+                                <strong className="hidden-strong">{users[this.props.expense.payer_id].name}</strong> paid <strong className="hidden-strong">${totalDisplay}</strong> and owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong>
+                            </h5>
+                            {this.props.expense.splitterIds.map(id => {
+                                if (id === this.props.expense.payer_id) {
+                                    return null
+                                } else {
+                                    return <h5 key={id} className="hidden-texts"><strong className="hidden-strong">{users[id].name}</strong> owes <strong className="hidden-strong">${(this.props.expense.amount / this.props.expense.splitterIds.length).toFixed(2)}</strong></h5>
+                                }
+                            })}
+                        </div>
+                        <Comments expense={this.props.expense} users={this.props.users} currentUser={this.props.currentUser} />
+                </div>           
             </div>         
-            </div>
+        </div>
         )
     };
 }
