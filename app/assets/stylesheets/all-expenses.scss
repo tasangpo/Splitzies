@@ -119,7 +119,7 @@
     padding: 5px 0px 5px 10px ;
     font-family: 'Lato';
     font-size: 12px;
-    color: steelblue;
+    color: #333333;
 }
 
 .hidden-strong {
@@ -128,12 +128,30 @@
 
 .hidden-expense-divider {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding-right: 20px;
+    padding: 0 10px 0 10px;
 }
 
-.hidden-expense-divider div {
-    justify-content: center;
+.top-hidden {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;  
+    display: flex;  
+}
+
+.top-hidden-img {
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    background-color: #EEEEEE;
+    margin-right: 10px;
+}
+
+.top-hidden-texts {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato';
+    justify-content: space-between;
 }
 
 
@@ -141,14 +159,77 @@
     margin-right: 10px;
     color: white;
     font-family: 'Lato';
-    font-size: 12px;
+    font-size: 11px;
     background-color: #FF652F;
-    padding: 10px 15px;
+    padding: 2px 6px;
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
+    width: 50%;
+    text-shadow: 0 -1px 0 #C83400;
 }
 
 .edit-btn:hover {
     background-color: #f54b0d;
+}
+
+.bottom-hidden {
+    border: 1px solid green;
+    display: flex;
+}
+
+.hidden-participants {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.comments-container {
+    width: 50%;
+    padding: 5px;
+}
+
+.comments-header {
+    font-size: 12px;
+    color: #999;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.each-comment {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+    padding: 6px 8px;
+    font-size: 13px;
+    width: 80%;
+}
+
+.each-comment h1 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.delete-comment-btn {
+    background-color: transparent;
+    font-size: 8px;
+    border: none;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-comment-btn:hover {
+    border-bottom: 1px solid red;
+}
+
+.post-comment-btn {
+    background: #ff652f;
+    color: #FFF;
+    text-shadow: 0 -1px 0 #C83400;
+    font-size: 13px;
+    padding: 3px 6px;
+    width: 50px;
+    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+    margin-bottom: 10px;
+    border-radius: 5px;
 }

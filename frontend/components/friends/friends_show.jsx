@@ -43,21 +43,21 @@ class FriendsShow extends React.Component {
         const relatedExpenses = this.props.expenses.filter(expense => (expense.payer_id === friend.id && expense.splitterIds.includes(this.props.currentUser.id)) || (expense.payer_id === this.props.currentUser.id && expense.splitterIds.includes(friend.id)))
 
         
-        let relativeBlance = 0;
+        let relativeBalance = 0;
         for (const expense of relatedExpenses) {
             const split = expense.amount / expense.splitterIds.length
             if (expense.payer_id === this.props.currentUser.id) {
-                relativeBlance += split
+                relativeBalance += split
             } else {
-                relativeBlance -= split
+                relativeBalance -= split
             }
         };
 
-        relativeBlance = relativeBlance.toFixed(2);
+        relativeBalance = relativeBalance.toFixed(2);
 
-        const balanceDiv = relativeBlance >= 0 ? 
-            <div className="bal-rel-div"><span id="you-owe-me-money">{friend.name} owes you ${relativeBlance}</span></div> : 
-            <div className="bal-rel-div"><span id="i-owe-you-money">You owe {friend.name} ${(relativeBlance * -1).toFixed(2)}</span></div>;
+        const balanceDiv = relativeBalance >= 0 ? 
+            <div className="bal-rel-div"><span id="you-owe-me-money">{friend.name} owes you ${relativeBalance}</span></div> : 
+            <div className="bal-rel-div"><span id="i-owe-you-money">You owe {friend.name} ${(relativeBalance * -1).toFixed(2)}</span></div>;
         
         return (
             <div>
