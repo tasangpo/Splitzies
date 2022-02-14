@@ -40,6 +40,7 @@ class Comments extends React.Component {
     render() {
         const { expense, users } = this.props;
         const comments = expense.comments;
+
         return (
             <div className='comments-container'>
                 <h1 className='comments-header'> &#128172;&nbsp;&nbsp; NOTES AND COMMENTS</h1>
@@ -48,7 +49,8 @@ class Comments extends React.Component {
                         return ( <div className='each-comment'> 
                             <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
                                 <h1>{users[comment.author_id].name.split(' ')[0]}</h1>
-                                <button className='delete-comment-btn' onClick={() => this.props.deleteComment(comment.id)}>&#10060;</button>
+                                {/* <button className='delete-comment-btn' onClick={() => this.props.deleteComment(comment.id)}>&#10060;</button> */}
+                                {comment.author_id === this.props.currentUser.id ? <button className='delete-comment-btn' onClick={() => this.props.deleteComment(comment.id)}>&#10060;</button> : null}
                             </div>
                             <span>{comment.body}</span>
                         </div>)
