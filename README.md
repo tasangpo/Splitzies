@@ -21,7 +21,7 @@
 
 
 
-## Teachnology Utilized <a name="technology"></a>
+## Technology Utilized <a name="technology"></a>
 
 * React
 * Redux
