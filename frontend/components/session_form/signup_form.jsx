@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemo = this.loginDemo.bind(this);
     };
 
     // remove errors from previous attempts
@@ -26,6 +27,11 @@ class SignupForm extends React.Component {
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
+    }
+
+    loginDemo(e) {
+        e.preventDefault();
+        this.props.login({ email: "guest_user@demo.com", password: "password" })
     }
 
     renderErrors() {
@@ -83,6 +89,8 @@ class SignupForm extends React.Component {
                             </div>
                             <button id="orange-btn">Sign me up!</button>
                         </form>
+                        <h1>Don't have an account? </h1>
+                        <button id="splash-signup" onClick={this.loginDemo}>Log in as Demo User!</button>
                     </div>
                 </div>
 

@@ -6,7 +6,7 @@ import TopNav from "../navs/top_nav";
 class Splash extends React.Component {
     render() {
         return (
-            <div class="splash-all">
+            <div className="splash-all">
                 <TopNav />
 
                 <div className='splash-container'>
