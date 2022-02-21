@@ -63,7 +63,9 @@ class FriendsShow extends React.Component {
             <div className="bal-rel-div"><span id="i-owe-you-money">You owe {friend.name} ${(relativeBalance * -1).toFixed(2)}</span></div>;
 
         const addOrRemoveButton = this.props.currentUser.friendIds.includes(friend.id) ? 
-            <NavLink to="/dashboard" style={{ 'textDecoration': 'none', 'color': 'white' }}><button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button></NavLink> :
+            // <NavLink to="/dashboard" style={{ 'textDecoration': 'none', 'color': 'white' }}><button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button></NavLink> :
+            <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button>:
+
             <button id="frd-show-btn2" onClick={() => this.props.addFriendAction({email: friend.email})}>Add friend</button> 
 
 
