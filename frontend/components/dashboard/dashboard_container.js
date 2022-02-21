@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
             }
         };
 
-        peopleId = peopleId.filter(id => this.props.currentUser.friendIds.includes(id));
+        // peopleId = peopleId.filter(id => this.props.currentUser.friendIds.includes(id));
 
 
         // Mapping every id in peopleId to an html element that will either go on left if we owe them or right if they owe us
