@@ -25,7 +25,7 @@ class HomeNav extends React.Component {
 
                 <div className="main-container">
                     <section className="left-console">
-                        <LeftNav currentUser={this.props.currentUser}/>
+                        <LeftNav/>
                     </section>
                     <section className="middle-console">
                         <Switch>

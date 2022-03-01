@@ -7,7 +7,7 @@ import { fetchGroups } from "../../actions/group_actions"
 
 
 const mSTP = state => ({
-    friendIds: state.entities.users[state.session.id].friendIds,
+    // friendIds: state.entities.users[state.session.id].friendIds,
     groupIds: state.entities.users[state.session.id].groupIds,
     currentUser: state.entities.users[state.session.id]
 })

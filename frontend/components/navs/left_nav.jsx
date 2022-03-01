@@ -39,7 +39,7 @@ class LeftNav extends React.Component {
                         <button onClick={() => this.props.openModal('addFriend')} style={{ 'textDecoration': 'none', 'color': '#CCCCCC', 'border': 'none', 'backgroundColor': 'transparent' }}>+ add</button>
                      </div>
                      <div>
-                        {this.props.friendIds.map(id => <EachFriendItem userId={id} key={id}/>)}
+                        {this.props.currentUser.friendIds.map(id => <EachFriendItem userId={id} key={id}/>)}
                      </div>
                  </section>
 
