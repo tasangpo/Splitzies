@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import { NavLink } from "react-router-dom";
 import { fetchUsers } from "../../actions/user_actions";
 import { fetchExpenses } from "../../actions/expense_actions";
 import { addFriendAction, removeFriendAction } from "../../actions/friendship_actions";
@@ -65,8 +64,8 @@ class FriendsShow extends React.Component {
         const addOrRemoveButton = this.props.currentUser.friendIds.includes(friend.id) ? 
             // <NavLink to="/dashboard" style={{ 'textDecoration': 'none', 'color': 'white' }}><button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button></NavLink> :
             <button id="frd-show-btn2" onClick={() => this.props.removeFriendAction(friend.id)}>Remove friend</button>:
-
-            <button id="frd-show-btn2" onClick={() => this.props.addFriendAction({email: friend.email})}>Add friend</button> 
+            null
+            // <button id="frd-show-btn2" onClick={() => this.props.addFriendAction({email: friend.email})}>Add friend</button> 
 
 
                 return (
